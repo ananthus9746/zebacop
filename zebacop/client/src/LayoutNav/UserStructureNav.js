@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link,Outlet } from 'react-router-dom'
+import Home from '../pages/User/Home/Home'
+import './UserNav.css'
 
 function UserStructureNav() {
   return (
@@ -10,9 +12,14 @@ function UserStructureNav() {
 
         <Link to="/">Home</Link>
         <Link to="/projects">Projects</Link>
-        <Link to="/community">Community</Link>
+        <Link to="">Community</Link>
 
+        <Link to="/ConnectWallets">
         <button>Wallet Connect</button>
+
+        </Link>
+
+
 
 
         <Outlet></Outlet>
