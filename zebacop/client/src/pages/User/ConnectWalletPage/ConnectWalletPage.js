@@ -1,8 +1,9 @@
 import React from 'react'
+import './ConnectWallte.css'
 
 function ConnectWalletPage() {
   return (
-    <div>ConnectWalletPage</div>
+    <div className='connectWallet'>ConnectWalletPage</div>
   )
 }
 

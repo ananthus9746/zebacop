@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import UserStructureNav from './LayoutNav/UserStructureNav'
+import UserStructure from './LayoutNav/UserStructure'
 import Home from './pages/User/Home/Home'
 import AllProjectPage from './pages/User/AllProjectPage/AllProjectPage'
 import ConnectWalletPage from './pages/User/ConnectWalletPage/ConnectWalletPage'
@@ -17,6 +17,7 @@ import OngoingPage from './pages/Admin/OngoingPage/OngoingPage'
 import EndedProjectPage from './pages/Admin/EndedProjectPage/EndedProjectPage'
 import RejectedPage from './pages/Admin/RejectedPage/RejectedPage'
 import ErrorPage from  './pages/ErrorPage/ErrorPage'
+import './App.css'
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
       <Routes>
 
       
-        <Route path="/" element={<UserStructureNav />}>
+        <Route path="/" element={<UserStructure />}>
         
           <Route index element={<Home />} />
           <Route path="/projects" element={<AllProjectPage />} />
@@ -40,6 +41,7 @@ function App() {
 
         <Route path="/admin" element={<AdminAuthentication />}>
           <Route path="/admin" element={<AdminStructureNav />}>
+
             <Route index element={<AdminDashboard />} />
             <Route path="pending" element={<PendingPage />} />
             <Route path="approved" element={<ApprovedPage />} />
@@ -47,6 +49,7 @@ function App() {
             <Route path="progrssing" element={<OngoingPage />} />
             <Route path="ended" element={<EndedProjectPage />} />
             <Route path="rejected" element={<RejectedPage />} />
+
           </Route>
         </Route>
 

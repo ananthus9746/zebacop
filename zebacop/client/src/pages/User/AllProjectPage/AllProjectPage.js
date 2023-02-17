@@ -1,8 +1,9 @@
 import React from 'react'
+import './AllProject.css'
 
 function AllProjectPage() {
   return (
-    <div>AllProjectPage</div>
+    <div className='allProject'>AllProjectPage</div>
   )
 }
 

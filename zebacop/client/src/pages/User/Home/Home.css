@@ -1,0 +1,150 @@
+.home{
+    background-color: rgba(35, 1, 82, 0.271);
+    height: 100vh;
+    /* max-width: 1200px; */
+    color: white;
+}
+.text_heading_wapper{
+    /* background-color: rgb(66, 39, 4); */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+}
+.tex_container{
+/* width: 85%; */
+    /* background-color: rgb(26, 59, 5); */
+
+}
+.txt_main{
+    font-size: 4rem;
+    font-weight: 700;
+    width: 85%;
+
+}
+.txt_sub{
+    color: rgb(95, 94, 94);
+}
+.apply_btn_container{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.btn_explore{
+    color: white;
+    background: rgb(8,8,102);
+    background: linear-gradient(90deg, rgba(8,8,102,1) 24%, rgba(178,50,207,1) 100%);
+    border: none;
+    border-radius: 30px;
+    font-weight: bolder;
+    padding: 18px;
+    font-size: 1.3rem;
+    transition: 0.3s;
+    cursor: pointer;
+
+    width: 170px;
+}
+
+.btn_apply{
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 30px;
+    font-weight: bolder;
+    padding: 18px;
+    font-size: 1.3rem;
+    transition: 0.3s;
+ cursor: pointer;
+    width: 170px;
+
+}
+.btn_apply:hover{
+ background: rgb(8,8,102);
+background: linear-gradient(90deg, rgba(8,8,102,1) 24%, rgb(129, 50, 207) 100%);
+border: 1px solid rgb(0, 0, 0);
+
+
+}
+
+
+
+
+.project_wrapper{
+    /* background-color: rgb(13, 88, 88); */
+    padding: 20px;
+}
+
+
+
+/* 
+.main_image_and_gradient {
+    width: 100vw;
+    height: 20vh;
+    color: #fff;
+    background: linear-gradient(-45deg, #ee76524f, #e73c7e69, #23a5d54b, #23d5ab56);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+
+    position: relative;
+
+    left: 0;
+    right: 0;
+
+
+}
+.imagediv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    background: rgba(255, 255, 255, 0.151);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 9.5px );
+    -webkit-backdrop-filter: blur( 9.5px );
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+    background-position: 0% 50%
+    }
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
+  }
+  
+  @-moz-keyframes Gradient {
+    0% {
+    background-position: 0% 50%
+    }
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
+  }
+  
+  @keyframes Gradient {
+    0% {
+    background-position: 0% 50%
+    }
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
+  }
+
+   */
