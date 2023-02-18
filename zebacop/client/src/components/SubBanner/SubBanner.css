@@ -1,0 +1,52 @@
+.subBanner{
+    width: 100%;
+    background-color: rgba(97, 13, 252, 0.603);
+    margin-top: 70px;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-size: top;
+
+
+    background-image:
+    linear-gradient(180deg, rgba(72,13,115,1) 6%, rgba(51, 3, 85, 0.836) 90%, rgba(0,0,0,1) 100%), url(
+        '../../images/pawel-czerwinski-PvgqqicSLvA-unsplash.jpg');
+    width: 100%;
+    text-align: center;
+    color: #fff;
+
+    background-blend-mode:multiply ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+.subBanner_banner_div{
+    max-width: 80%;
+
+    /* background-color: aqua; */
+}
+.subBanner_heading{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+.subBanner_para{
+    color: #c7c7c7;
+    margin-bottom: 10px;
+}
+.subBanner_apply_now{
+    color: white;
+    background: rgb(8,8,102);
+    background: linear-gradient(90deg, rgb(58, 8, 102) 24%, rgb(76, 50, 207) 100%);
+    border: none;
+    border-radius: 30px;
+    font-weight: bolder;
+    padding: 10px;
+    font-size: 1.3rem;
+    transition: 0.3s;
+    cursor: pointer;
+
+    width: 170px;
+}

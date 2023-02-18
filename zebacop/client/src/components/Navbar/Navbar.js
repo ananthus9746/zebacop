@@ -3,7 +3,6 @@ import React from 'react'
 import { Link, Outlet, NavLink } from 'react-router-dom'
 // import Home from '../pages/User/Home/Home'
 import './Navbar.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
@@ -24,7 +23,7 @@ function Navbar() {
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Home</NavLink>
             <NavLink to="/projects" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Projects</NavLink>
             <Link className='inactive'>
-              Community<FontAwesomeIcon icon="fa-solid fa-angle-down" />
+              Community
             </Link>
           </div>
           

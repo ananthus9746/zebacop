@@ -1,0 +1,56 @@
+.TotalCapitalProjectWrapper{
+    /* background-color: rgba(217, 116, 116, 0.267); */
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    border-top: .3px solid rgba(127, 38, 230, 0.394);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.txt_totalproject_and_capital{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    width: 60%;
+
+    /* background-color: antiquewhite; */
+}
+.totals_wrapper{
+    /* background-color: rgb(183, 137, 67); */
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+
+    
+}
+.totals_container{
+    background-color: rgba(92, 94, 91, 0.339);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 20px;
+    min-width: 200px;
+    min-height: 150px;
+
+}
+
+
+.text_total{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+@media (max-width: 500px) {
+    .totals_wrapper{
+        flex-direction: column;
+    }
+    .txt_totalproject_and_capital{
+        width: 100%;
+    }
+
+}

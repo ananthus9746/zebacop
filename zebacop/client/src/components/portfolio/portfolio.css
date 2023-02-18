@@ -1,0 +1,12 @@
+.portfolio_silder{
+    /* background-color: rgba(33, 5, 59, 0.774); */
+    margin-top: 20px;
+
+}
+.portfolio_head{
+    background-color: rgba(90, 81, 105, 0.223);
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+}

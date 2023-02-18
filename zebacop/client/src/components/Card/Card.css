@@ -1,5 +1,5 @@
 .card{
-    background-color: rgba(77, 62, 82, 0.435);
+    background-color: rgba(41, 23, 97, 0.421);
     width: 100%;
     padding: 15px;
     border-radius: 20px;
@@ -12,12 +12,9 @@
 .card_container{
 display: flex;
 flex-direction: column;
-gap: 10px;
+gap: 20px;
 }
-.progrss_bar{
-    background-color: rgb(18, 18, 18);
-    border-radius: 5px;
-}
+
 
 /* IMAGE DISCRIPTION CONTAINER */
 .img_discrption_container{
@@ -75,10 +72,28 @@ padding: 0px;
 color: rgb(204, 203, 204);
 font-weight: bold;
 }
+.progrss_bar{
+    background-color: rgb(18, 18, 18);
+    border-radius: 5px;
 
-.progrss_bar_and_raised_wapper{
-    /* background-color: rgb(119, 212, 133); */
+}
+.raised_wapper{
+    display: flex;
+    justify-content: space-between;
+    font-size: .8rem;
+    font-weight: 700;
+    color: rgb(230, 230, 230);
+    background-color: rgba(24, 2, 22, 0.562);
+    border-radius: 7px;
+    padding: 5px;
+    font-size: .8rem;
 }
 .socia_links_and_status{
     /* background-color: brown; */
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: .8rem;
+    color: rgb(212, 212, 212);
+
 }

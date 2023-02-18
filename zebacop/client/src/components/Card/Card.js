@@ -4,6 +4,8 @@ import { Progress } from "@material-tailwind/react";
 // import TwitterIcon from '@mui/icons-material/Twitter';
 import projectImage from '../../images/NFT-Site_0.jpg'
 
+
+
 function Card() {
     return (
         <div className='card'>
@@ -24,18 +26,19 @@ function Card() {
                     <div className='public_or_private'>Public IDO</div>
                 </div>
 
-                <div className="progrss_bar_and_raised_wapper">
-                    <div className="progrss_bar">
-                        <Progress value={70} label="Completed" color='purple' />
-                    </div>
+                <div className="progrss_bar">
+                    <Progress value={70} label="Completed" color='purple' />
+                </div>
+
+                <div className="raised_wapper">
                     <p>13890000/25000000 NFTP</p>
                     <p>Raised</p>
                 </div>
 
                 <div className='socia_links_and_status'>
                     <div>ICO Ended</div>
+                    {/* <FontAwesomeIcon icon="fa-light fa-coffee" /> */}
                     {/* <div>Know more</div> */}
-                    <i>icons tw te net</i>
                 </div>
 
             </div>
