@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, Outlet, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 // import Home from '../pages/User/Home/Home'
 import './Navbar.css'
 
@@ -11,9 +11,7 @@ function Navbar() {
 
   
   return (
-    <div  id='header_container'>
-      <header id='header'>
-        <nav className='user_nav'>
+        <nav className='user_nav sticky top-0 left-0 w-full'>
 
           <div className="">
             <p>Logo</p>
@@ -37,8 +35,6 @@ function Navbar() {
 
 
         </nav>
-      </header>
-    </div>
   )
 }
 

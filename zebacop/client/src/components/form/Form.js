@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import {submitForm} from '../APIs/UserApi'
+import Swal from 'sweetalert2';
+
 
 import './Form.css'
 
@@ -16,26 +19,39 @@ function Form() {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = async (taskData) => {
-        console.log("inside on submit");
-        console.log(taskData);
+    const onSubmit = async (ApplicationData) => {
+        console.log("inside Onsubmit");
+        console.log(ApplicationData);
 
-        // const response = await AdminAxiosInstance({
-        //   method: "post",
-        //   url: "/admin/create-task",
-        //   data: {
-        //     taskData,
-        //   },
-        // }).then((response) => {
-        //   alert("Task added");
+        try{
 
-        //   reset({
-        //     taskName: "",
-        //     time: "",
-        //     user: "",
-        //     discription: "",
-        //   });
-        // });
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you want to continue!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, continue!'
+              }).then(async(result) => {
+                if (result.isConfirmed) {
+                 
+                  const { data } = await submitForm(ApplicationData)
+        
+        
+                  Swal.fire(
+                    'Submited!',
+                  
+                    'success'
+                  )
+                }
+            })
+
+        }catch(err){
+            console.log(err)
+        }
+
+
     };
 
     return (

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, Outlet, NavLink } from 'react-router-dom'
-import Home from '../pages/User/Home/Home'
+import { Outlet} from 'react-router-dom'
 import './UserStructure.css'
 import Navbar from '../components/Navbar/Navbar'
 
