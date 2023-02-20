@@ -30,13 +30,13 @@ const ProjectHelper = async (formData) => {
     }
 }
 
-const UpdateProjectHelper = async (data, projectId) => {
-    console.log("adminhelper...", data.update, projectId)
+const UpdateProjectHelper = async (projectUpdate) => {
+    console.log("update adminhelper...", projectUpdate)
     try {
         return new Promise(async (resolve, reject) => {
 
-            await Project.findByIdAndUpdate({ _id: projectId }, { $set: { status: data.update } }).then((res) => {
-                console.log("updated..", res)
+            await Project.findByIdAndUpdate({ _id:projectUpdate.projectId }, { $set: { status: projectUpdate.status } },{new: true}).then((res) => {
+                console.log("updated status..", res)
                 resolve()
             })
         })
@@ -50,7 +50,7 @@ const  getProjectHelper=async()=>{
     try{
         return new Promise(async (resolve, reject) => {
 
-            await Project.find({}).then((projects) => {
+            await Project.find({status:'pending'}).then((projects) => {
                 console.log("geted projects..", projects)
                 resolve(projects)
             })

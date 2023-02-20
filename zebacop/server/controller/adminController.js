@@ -23,10 +23,11 @@ const Project = async (req, res) => {
 
 
 const UpdateProject = async (req, res) => {
-    console.log("admin croller", req.params.id)
-    let projectId= req.params.id
+    console.log("upadte project..", req.body)
+    
+    
     try {
-        UpdateProjectHelper(req.body,projectId).then((response) => {
+        UpdateProjectHelper(req.body).then((response) => {
             console.log("upadted ctrl")
             res.status(200).json({ message: "updated..", response })
         }).catch((err) => {

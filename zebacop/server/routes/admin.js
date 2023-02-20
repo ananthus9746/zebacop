@@ -55,7 +55,7 @@ router.post('/project',Project)//this request came from user. submiting project 
 router.get('/getprojects',getprojects)
 
 
-router.put('/project/:id',UpdateProject)//updating project status
+router.put('/project',UpdateProject)//updating project status
 
 
 

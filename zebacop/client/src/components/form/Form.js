@@ -76,6 +76,7 @@ function Form() {
 
     return (
         <div className='form_wrapper'>
+            
             <form className='form_container' onSubmit={handleSubmit(onSubmit)}>
 
                 <label htmlFor="Project name">Project</label>

@@ -1,13 +1,14 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import {Table} from 'antd'
-import { getProjects } from '../../APIs/UserApi'
+import {Table,Popconfirm,Button} from 'antd'
+import { getProjects,UpdateStatus } from '../../APIs/UserApi'
 import './TableDasboard.css'
+
+
 
 function TableDashboard() {
   const[ gridData,setGridData]=useState([])
   const [loading,setLoading]=useState(false)
-
   useEffect(()=>{
     loadData()
   },[])
@@ -21,6 +22,44 @@ function TableDashboard() {
     })
   }
 
+  const handleAccept=async(record)=>{
+    console.log("record...",record._id);
+    let projectId=record._id
+    const accepted={
+      projectId,
+      status:"accepted"
+    }
+    await UpdateStatus(accepted).then((res)=>{
+      
+      console.log("accepted..",res)
+    })
+
+    // const dataSource=[...gridData]
+    // const filtered=dataSource.filter((item)=>{
+    //   console.log("item..",item)
+    // })
+  }
+
+  
+  const handleReject=async(record)=>{
+    console.log("record...",record._id);
+    let projectId=record._id
+    const accepted={
+      projectId,
+      status:"rejected"
+    }
+    await UpdateStatus(accepted).then((res)=>{
+      console.log("rejected..",res)
+    })
+
+    console.log("record...",record);
+    const dataSource=[...gridData]
+    const filtered=dataSource.filter((item)=>{
+      // /project/:id
+      console.log("item..",item)
+    })
+
+  }
 
 
   const columns = [
@@ -28,6 +67,12 @@ function TableDashboard() {
       title: 'No.',
       key: 'index',
       render: (text, gridData,index) => index + 1,
+
+    },
+    {
+      title: 'Date.',
+      key: 'index',
+      dataIndex:'createdAt'
 
     },
     {
@@ -51,10 +96,43 @@ function TableDashboard() {
       dataIndex: 'publicOrAnonymous',
     },
     ,
-    {
-      title: 'Action',
-      dataIndex: 'action',
-    },
+ 
+     {
+
+      title: 'Accept',
+      render: (text, record) => (
+        <Popconfirm  title="Are you sure want to Accept "  
+         onConfirm={()=>handleAccept(record)}   
+         placement="rightTop"
+         okText="Yes"
+        cancelText="No"
+              >
+        <Button type="primary" style={{ background: "green", borderColor: "" }}  Sucess onClick={()=> console.log(record)}>
+          {"Accept"}
+        </Button>
+
+        </Popconfirm>
+        
+        ), 
+      },
+      {
+
+        title: 'Reject',
+        render: (text, record) => (
+          <Popconfirm  title="Are you sure want to Accept "  
+           onConfirm={()=>handleReject(record)}   
+           placement="rightTop"
+  
+           okText="Yes" 
+          cancelText="No"
+                >
+  
+          <Button type="" style={{ backgroundColor: "red", borderColor: "",color:"white" }}  Sucess onClick={()=> console.log(record)}>
+            {"Reject"}
+          </Button>
+          </Popconfirm>
+          ), 
+        },
   ];
 
   
@@ -62,13 +140,11 @@ function TableDashboard() {
 
   return (
     <div className='table_cover'>
-
     <Table
      columns={columns} dataSource={gridData}
     bordered
     loading={loading}
     />
-
     </div>
   )
 }
