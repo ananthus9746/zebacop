@@ -1,5 +1,6 @@
-.adminDashboard{
-    background-color: rgb(2, 77, 2);
-    width: 500px;
-    height: 500px;
+.adminDashboar{
+    background-color: rgb(46, 47, 46);
+    /* width: 500px;
+    height: 500px;color: white; */
+    height: 100vh;
 }

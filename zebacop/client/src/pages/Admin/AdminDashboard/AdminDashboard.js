@@ -1,8 +1,14 @@
 import React from 'react'
+import TableDashboard from '../../../components/TableDashboard/TableDashboard'
+import './AdminDahboard.css'
+
+
 
 function AdminDashboard() {
   return (
-    <div>AdminDashboard</div>
+    <div className='adminDashboar'>
+      <TableDashboard/>
+    </div>
   )
 }
 

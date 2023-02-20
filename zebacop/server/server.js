@@ -9,6 +9,8 @@ const AdminRouter = require('./routes/admin')
 const UserRouter = require('./routes/user')
 dotenv.config()
 mongoose.set('strictQuery', false);
+const fileupload= require( "express-fileupload");
+
 
 //CONNECTING TO DB
 connectDB()
@@ -17,6 +19,14 @@ connectDB()
 app.use(cors())
 app.use(morgan("common"))
 app.use(express.json());
+
+app.use(
+    fileupload({
+        createParentPath: true,
+    }),
+);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //MAIN ROUTES
 app.use('/admin',AdminRouter)

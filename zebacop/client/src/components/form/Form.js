@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import {submitForm} from '../APIs/UserApi'
+import { submitForm } from '../../APIs/UserApi'
 import Swal from 'sweetalert2';
 
 
@@ -19,11 +19,14 @@ function Form() {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = async (ApplicationData) => {
-        console.log("inside Onsubmit");
-        console.log(ApplicationData);
+    const onSubmit = async (data) => {
+        console.log("inside Onsubmit", data);
 
-        try{
+        // const formData = new FormData();
+        // formData.append("file", data.file[0])
+        // console.log("image appednde data..", formData)
+
+        try {
 
             Swal.fire({
                 title: 'Are you sure?',
@@ -33,21 +36,38 @@ function Form() {
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, continue!'
-              }).then(async(result) => {
+            }).then(async (result) => {
                 if (result.isConfirmed) {
-                 
-                  const { data } = await submitForm(ApplicationData)
-        
-        
-                  Swal.fire(
-                    'Submited!',
-                  
-                    'success'
-                  )
+
+                    submitForm(data).then((res) => {
+                        console.log("Ress..", res)
+                        if (res.status === 200) {
+                            Swal.fire(
+                                'Submited!',
+                                'success'
+                            )
+                            reset({
+                                projectName: "",
+                                ProjectType: "",
+                                introduction: "",
+                                discription: "",
+                                tokeynSymbol: "",
+                                fund: "",
+                                publicOrAnonymous: "",
+                                currentStatus: "",
+                                blockchain: "",
+                            });
+                        }
+                        else {
+                            console.log("form else..")
+                            alert("Something went wrong try again..")
+                        }
+                    })
+
                 }
             })
 
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
 
@@ -71,19 +91,14 @@ function Form() {
                 <input type="radio" value="metaverse" name="type" {...register("ProjectType", { required: true })} /> Metaverse
 
                 <input type="radio" value="ProjectTypeother" name='type'  {...register("ProjectType", { required: true })} />Other
-                
-                 <input className='input_other' type="text" name="ProjectTypeother" {...register("ProjectTypeother",)} />
+
+                <input className='input_other' type="text" name="ProjectTypeother" {...register("ProjectTypeother",)} />
 
                 {errors.ProjectType && (
                     <span className="reqired-field">Select a project type</span>
                 )}
 
-                {/* <input type="radio" value="other" name='blockchain'  {...register("type", { required: true })} />Other
-                 <input className='input_other' type="text" name="otherBlockchain" {...register("otherBlockchain")} />
-
-                 {errors.blockchain && (
-                    <span className="reqired-field">Select a Platform</span>
-                )} */}
+        
 
 
                 <label>One Sentence Introduction</label>
@@ -132,9 +147,12 @@ function Form() {
 
                 <input className='input_other' type="text" name="otherBlockchain" {...register("otherBlockchain")} />
 
-                 {errors.blockchain && (
+                {errors.blockchain && (
                     <span className="reqired-field">Select a Platform</span>
                 )}
+
+                {/* <label htmlFor="">Project logo or image</label>
+                <input {...register("file")} type="file" /> */}
 
 
                 <button className='form_submit' type=''>Apply</button>

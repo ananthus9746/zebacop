@@ -1,40 +1,76 @@
-                    {/* <div> */}
-                    <label>One Sentence Introduction</label>
-                    <input className='form_input' type="text" name="" id="" {...register("", { required: true })}/>
-                    {/* </div> */}
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './AdminSideBar.css'
+import {
+    FaBars,
+    FaCommentAlt,
+    FaRegChartBar,
+    FaTh
+} from 'react-icons/fa'
 
-                    {/* <div> */}
-                    <label htmlFor="">Token Symbol / Ticker</label>
-                    <input className='form_input' type="text" name="" id="" {...register("", { required: true })}/>
-                    {/* </div> */}
 
-                    {/* <div> */}
-                    <label htmlFor="">Have you already started fundraising?</label>
-                    <input type="radio" value="yes" name="fund" {...register("", { required: true })}/> Yes
-                    <input type="radio" value="no" name="fund" {...register("", { required: true })}/> No
-                    {/* </div> */}
+function AdminSideBar() {
 
-                    {/* <div> */}
-                    <label htmlFor="">If Yes, how much?</label>
-                    <input className='form_input' type="text" name="" id="" {...register("", { required: true })}/>
-                    {/* </div> */}
+    const menuItems=[
+        {
+            path:"/",
+            name:"dashboard",
+            icon:<FaTh/>
+        },
+        {
+            path:"/admin/pending",
+            name:"pending",
+            icon:<FaCommentAlt/>
+        }, {
+            path:"/",
+            name:"aproved",
+            icon:<FaRegChartBar/>
+        }, {
+            path:"/",
+            name:"final",
+            icon:<FaTh/>
+        }, {
+            path:"/",
+            name:"progrssing",
+            icon:<FaTh/>
+        },
+        {
+            path:"/",
+            name:"rejected",
+            icon:<FaTh/>
+        },
+    ]
 
-                    {/* <div> */}
-                    <label htmlFor="">Is your team Public or Anonymous?</label>
-                    <input type="radio" value="pubic" name="publicOrAnonymous" {...register("publicOrAnonymous", { required: true })}/> Public
-                    <input type="radio" value="anonymous" name="publicOrAnonymous" {...register("publicOrAnonymous", { required: true })}/> Anonymous
-                    {/* </div> */}
 
-                    {/* <div> */}
-                    <label htmlFor="">Describe your Project's current state of development</label>
-                    <textarea  name="currentStatus" rows="4" cols="50" {...register("currentStatus", { required: true })}></textarea>
-                    {/* </div> */}
+    return (
+        <div className='container'>
 
-                    {/* <div> */}
-                    <label htmlFor="">Blockchain/Platform</label>
-                    <input type="radio" value="BinanceSmartChain" name="blockchain" {...register("blockchain", { required: true })}/> Binance Smart Chain
-                    <input type="radio" value="Polygon" name="blockchain" {...register("blockchain", { required: true })}/> Polygon
-                    <input type="radio" value="Avalanche" name="blockchain" {...register("blockchain", { required: true })}/> Avalanche
-                    <input type="radio" value="Solana" name="blockchain" {...register("blockchain", { required: true })}/> Solana
-                    <input type="radio" value="" name="blockchain" {...register("blockchain", { required: true })}/>Other <input type="text" className='input_other' name="blockchain"  {...register("blockchain", { required: true })}/>
-                    {/* </div> */}
+                <div className="sidebar">
+                    <div className="top_section">
+                        <h1 className='logo'> logo</h1>
+                        <div className="bars">
+                            <FaBars/>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    )
+}
+
+export default AdminSideBar
+
+
+
+
+            {/* <nav className='admin_nav sidebarWrapper'>
+
+                <p>Admin logo side bar</p>
+                <Link to="/admin">Home</Link>
+                <Link to="/admin/pending">Pending</Link>
+                <Link to="/admin/approved">Approved</Link>
+                <Link to="/admin/progrssing">Pending</Link>
+                <Link to="/admin/final">Final</Link>
+                <Link to="/admin/ended">Ended</Link>
+                <Link to="/admin/rejected">Rejected</Link>
+                <button>Logout</button>
+            </nav> */}
