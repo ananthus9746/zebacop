@@ -55,24 +55,17 @@ function AdminSideBar() {
     const menuItems=[
         {
             path:"/admin",
-            name:"dashboard",
+            name:"Applications",
             icon:<FaTh/>
         },
         {
             path:"/admin/pending",
-            name:"pending",
+            name:"Approved",
             icon:<FaCommentAlt/>
-        }, {
-            path:"/admin/approved",
-            name:"aproved",
-            icon:<FaRegChartBar/>
-        }, {
+        }, 
+         {
             path:"/admin/progrssing",
             name:"progrssing",
-            icon:<FaTh/>
-        }, {
-            path:"/admin/final",
-            name:"final",
             icon:<FaTh/>
         },
         {

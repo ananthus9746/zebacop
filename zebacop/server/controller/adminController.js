@@ -27,9 +27,9 @@ const UpdateProject = async (req, res) => {
     
     
     try {
-        UpdateProjectHelper(req.body).then((response) => {
-            console.log("upadted ctrl")
-            res.status(200).json({ message: "updated..", response })
+        UpdateProjectHelper(req.body).then((updatedProject) => {
+            console.log("upadted ctrl date for response",updatedProject)
+            res.status(200).json({updatedProject })
         }).catch((err) => {
             // res.status(500).json({ mess: "server err...", err });
         })

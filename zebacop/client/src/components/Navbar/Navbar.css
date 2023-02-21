@@ -1,62 +1,53 @@
-
-
-/* header {
-
-
-    background:#090909;
-    z-index:1000;
-  } */
-
-  .user_nav{
+.user_nav {
     /* background-color: rgb(8, 1, 22); */
     display: flex;
     justify-content: space-between;
     /* max-width: 1200px; */
     color: white;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     align-items: center;
-    padding: 15px;
-    
-
+    padding: 20px;
     z-index: 100;
-
-
     backdrop-filter: blur(20px) saturate(200%);
     -webkit-backdrop-filter: blur(60px) saturate(200%);
     background-color: rgba(17, 25, 40, 0.69);
-
-
-
-    
+    height: 70px;
 }
-.nav_links{
+.company_logo{
+    width: 150px;
+    padding: 10px;
+    margin-top: 15px;
+}
+.nav_links {
     display: flex;
     gap: 20px;
-   
+
 
 }
 
 
-.active{
+.active {
     color: royalblue;
 }
-.inactive{
+
+.inactive {
     color: rgb(255, 255, 255);
 }
 
-.wllet_btn{
+.wllet_btn {
     color: white;
     background-color: black;
     border: 1px solid white;
     border-radius: 30px;
     font-weight: bold;
-    padding: 10px;
-    font-size: 1rem;
+    padding: 9px;
+    font-size: .9rem;
     transition: 0.3s;
 
 }
-.wllet_btn:hover{
-    background: rgb(8,8,102);
-    background: linear-gradient(90deg, rgba(8,8,102,1) 24%, rgba(178,50,207,1) 100%);
+
+.wllet_btn:hover {
+    background: rgb(8, 8, 102);
+    background: linear-gradient(90deg, rgba(8, 8, 102, 1) 24%, rgba(178, 50, 207, 1) 100%);
     border: 1px solid black;
 }

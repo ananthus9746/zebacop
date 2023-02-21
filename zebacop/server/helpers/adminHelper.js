@@ -35,9 +35,9 @@ const UpdateProjectHelper = async (projectUpdate) => {
     try {
         return new Promise(async (resolve, reject) => {
 
-            await Project.findByIdAndUpdate({ _id:projectUpdate.projectId }, { $set: { status: projectUpdate.status } },{new: true}).then((res) => {
-                console.log("updated status..", res)
-                resolve()
+            await Project.findByIdAndUpdate({ _id:projectUpdate.projectId }, { $set: { status: projectUpdate.status } },{new: true}).then((updatedProject) => {
+                console.log("updated status project..", updatedProject)
+                resolve(updatedProject)
             })
         })
     }

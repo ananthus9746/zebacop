@@ -1,3 +1,5 @@
+
+
 .home{
     background-color: rgba(33, 1, 40, 0.164);
     /* max-width: 1200px; */
@@ -27,6 +29,14 @@
 
 
    
+
+}
+.text_launch{
+color:rgb(143,36,143);
+}
+.text_box{
+font-weight: 200;
+color:rgb(143,36,143);
 
 }
 .txt_main{

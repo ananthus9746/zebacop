@@ -14,8 +14,8 @@ function Home() {
       <div className="text_heading_wapper">
         <div class="tex_container">
           <div class="txt_heading_container">
-            <p className='txt_main'>Innovative Web 3.0 <br/> IDO Launchpad</p>
-            <p className='txt_sub'>by zebaco.finance</p>
+            <p className='txt_main'>Innovative Web 3.0 <br/> IDO <span className='text_launch'>Launch</span><span className='text_box'>box</span> </p>
+            <p className='txt_sub'>by laucnchbox.finance</p>
           </div>
           <div className="apply_btn_container">
             <button className='btn_explore'>Explore</button>
