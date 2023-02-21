@@ -37,11 +37,11 @@ function TableDashboard() {
   const handleAccept = async (record) => {
     console.log("record...", record._id);
     let projectId = record._id;
-    const accepted = {
+    const status = {
       projectId,
       status: "accepted",
     };
-    await UpdateStatus(accepted).then((res) => {
+    await UpdateStatus(status).then((res) => {
       console.log("gridData..", gridData);
       console.log("fucm..", res.data.updatedProject);
       setGridData(
@@ -55,20 +55,19 @@ function TableDashboard() {
   const handleReject = async (record) => {
     console.log("record...", record._id);
     let projectId = record._id;
-    const accepted = {
+    const status = {
       projectId,
       status: "rejected",
     };
-    await UpdateStatus(accepted).then((res) => {
-      console.log("rejected..", res);
-    });
 
-    console.log("record...", record);
-    const dataSource = [...gridData];
-    const filtered = dataSource.filter((item) => {
-      // /project/:id
-      console.log("item..", item);
+    await UpdateStatus(status).then((res) => {
+      console.log("rejected..", res);
+      setGridData(
+        gridData.filter((item) => item._id !== res.data.updatedProject._id)
+      );
+      console.log("mmm", gridData);
     });
+   
   };
 
 
