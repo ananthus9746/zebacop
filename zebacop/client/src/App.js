@@ -16,6 +16,7 @@ import FinalPage from './pages/Admin/FinalPage/FinalPage'
 import OngoingPage from './pages/Admin/OngoingPage/OngoingPage'
 import EndedProjectPage from './pages/Admin/EndedProjectPage/EndedProjectPage'
 import RejectedPage from './pages/Admin/RejectedPage/RejectedPage'
+import UpdateProjectPage from './pages/Admin/UpdateProjectPage/UpdateProjectPage'
 import ErrorPage from  './pages/ErrorPage/ErrorPage'
 import './App.css'
 
@@ -36,8 +37,7 @@ function App() {
 
         </Route>
 
-
-        <Route path="adminlogin" element={<AdminLogin />} />
+        <Route path="/adminlogin" element={<AdminLogin />} />
 
         <Route path="/admin" element={<AdminAuthentication />}>
           <Route path="/admin" element={<AdminStructureNav />}>
@@ -49,6 +49,7 @@ function App() {
             <Route path="progrssing" element={<OngoingPage />} />
             <Route path="ended" element={<EndedProjectPage />} />
             <Route path="rejected" element={<RejectedPage />} />
+            <Route path="updateProject" element={<UpdateProjectPage />} />
 
           </Route>
         </Route>

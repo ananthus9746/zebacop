@@ -3,3 +3,7 @@
     margin: auto;
 }
 
+.wrapper{
+    background-color: black;
+    /* height: 100vh; */
+}

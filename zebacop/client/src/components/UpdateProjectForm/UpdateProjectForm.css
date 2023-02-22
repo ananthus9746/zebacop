@@ -1,0 +1,17 @@
+.UpdateProjectFormWrapper{
+    padding: 20px;
+    height: 100vh;
+    background-color: rgb(80, 78, 78);
+}
+.update_input{
+    /* border: 1px solid gray; */
+    margin-bottom: 10px;
+    max-width: 500px;
+}
+.submit_btn{
+    border: 1px solid gray;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 120px;
+    background-color: rgb(238, 238, 238);
+}

@@ -59,15 +59,21 @@ function AdminSideBar() {
             icon:<FaTh/>
         },
         {
-            path:"/admin/pending",
+            path:"/admin/approved",
             name:"Approved",
             icon:<FaCommentAlt/>
         }, 
+        {
+            path:"/admin/pending",
+            name:"Cued",
+            icon:<FaTh/>
+        },
          {
             path:"/admin/progrssing",
             name:"progrssing",
             icon:<FaTh/>
         },
+       
         {
             path:"/admin/ended",
             name:"ended",

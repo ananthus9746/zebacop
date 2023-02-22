@@ -9,7 +9,20 @@ const AdminRouter = require('./routes/admin')
 const UserRouter = require('./routes/user')
 dotenv.config()
 mongoose.set('strictQuery', false);
-const fileupload= require( "express-fileupload");
+//multer
+// app.use(express.static("./public"));
+
+
+
+//file upload
+const bodyParser = require('body-parser');
+
+const multer = require("multer");
+const upload = multer({ _dir: "uploads" });
+app.use(express.static("files"));
+
+
+
 
 
 //CONNECTING TO DB
@@ -20,13 +33,14 @@ app.use(cors())
 app.use(morgan("common"))
 app.use(express.json());
 
-app.use(
-    fileupload({
-        createParentPath: true,
-    }),
-);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(
+//     fileupload({
+//         createParentPath: true,
+//     }),
+// );
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 
 //MAIN ROUTES
 app.use('/admin',AdminRouter)

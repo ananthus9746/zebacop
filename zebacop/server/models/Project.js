@@ -47,13 +47,17 @@ const ProjectSchema=new mongoose.Schema({
         type:String,
     },
     created : {
-        type:Date
+        type:String,
     },
-    started : {
-        type :Date
+    startDate : {
+        type:String,
     },
-    finished :{
-        type : Date
+    endDate :{
+        type:String,
+    }
+    ,
+    contractid :{
+        type : String
     }
 },{timestamps:true }
 )

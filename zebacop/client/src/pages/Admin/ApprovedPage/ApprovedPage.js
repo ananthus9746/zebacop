@@ -1,8 +1,12 @@
 import React from 'react'
+import ApprovedTable from '../../../components/ApprovedTable/ApprovedTable'
+import './ApprovedPageWrapper.css'
 
 function ApprovedPage() {
   return (
-    <div>ApprovedPage</div>
+    <div className='ApprovedPageWrapper'>
+      <ApprovedTable/>
+    </div>
   )
 }
 

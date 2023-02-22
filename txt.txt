@@ -1,76 +1,55 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './AdminSideBar.css'
-import {
-    FaBars,
-    FaCommentAlt,
-    FaRegChartBar,
-    FaTh
-} from 'react-icons/fa'
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { submitForm } from "../../APIs/UserApi";
+import Swal from "sweetalert2";
+import axios from "axios";
 
+import "./Form.css";
 
-function AdminSideBar() {
+function Form() {
+  const { register, handleSubmit } = useForm();
 
-    const menuItems=[
-        {
-            path:"/",
-            name:"dashboard",
-            icon:<FaTh/>
+  const [contactId, setContractId] = useState("");
+
+  const onSubmit = async (data) => {
+   
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+    formData.append("text", data.g);
+    formData.append("name", data.rtext);
+    formData.append("age", data.age);
+    formData.append("place", data.place);
+    formData.append("others", data.other);
+
+      const response = await axios.post( "http://localhost:5000/admin/project", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-        {
-            path:"/admin/pending",
-            name:"pending",
-            icon:<FaCommentAlt/>
-        }, {
-            path:"/",
-            name:"aproved",
-            icon:<FaRegChartBar/>
-        }, {
-            path:"/",
-            name:"final",
-            icon:<FaTh/>
-        }, {
-            path:"/",
-            name:"progrssing",
-            icon:<FaTh/>
-        },
-        {
-            path:"/",
-            name:"rejected",
-            icon:<FaTh/>
-        },
-    ]
+      });
+      console.log(response.data);
+    
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
 
 
-    return (
-        <div className='container'>
+      <input type="text" name="text" {...register("g")} />
+      <input type="text"  {...register("name")} />
+      <input type="text"  {...register("age")} />
+      <input type="text"  {...register("place")} />
+      <input type="text"  {...register("other")} />
 
-                <div className="sidebar">
-                    <div className="top_section">
-                        <h1 className='logo'> logo</h1>
-                        <div className="bars">
-                            <FaBars/>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    )
+      <input type="file" {...register("image")}/>
+      <button type="submit">Submit</button>
+
+
+    </form>
+  );
 }
 
-export default AdminSideBar
+export default Form;
 
 
 
 
-            {/* <nav className='admin_nav sidebarWrapper'>
-
-                <p>Admin logo side bar</p>
-                <Link to="/admin">Home</Link>
-                <Link to="/admin/pending">Pending</Link>
-                <Link to="/admin/approved">Approved</Link>
-                <Link to="/admin/progrssing">Pending</Link>
-                <Link to="/admin/final">Final</Link>
-                <Link to="/admin/ended">Ended</Link>
-                <Link to="/admin/rejected">Rejected</Link>
-                <button>Logout</button>
-            </nav> */}

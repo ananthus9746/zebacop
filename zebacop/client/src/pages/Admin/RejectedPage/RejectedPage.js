@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './RejectedPage.css'
 function RejectedPage() {
   return (
-    <div>RejectedPage</div>
+    <div className='RejectedPageWrapper'>RejectedPage</div>
   )
 }
 

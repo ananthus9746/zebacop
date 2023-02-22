@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './OngoingPage.css'
 function OngoingPage() {
   return (
-    <div>OngoingPage</div>
+    <div className='OngoingPageWrapper'>OngoingPage</div>
   )
 }
 

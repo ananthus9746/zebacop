@@ -27,19 +27,20 @@ function TableDashboard() {
 
   const loadData = async () => {
     setLoading(true);
-    await getProjects().then((response) => {
+    let pending="pending"
+    await getProjects(pending).then((response) => {
       console.log("projects..", response.data.projects);
       setGridData(response.data.projects);
       setLoading(false);
     });
   };
 
-  const handleAccept = async (record) => {
+  const handleApprove = async (record) => {
     console.log("record...", record._id);
     let projectId = record._id;
     const status = {
       projectId,
-      status: "accepted",
+      status: "approved",
     };
     await UpdateStatus(status).then((res) => {
       console.log("gridData..", gridData);
@@ -109,8 +110,8 @@ function TableDashboard() {
       render: (text, record) => (
         <>
           <Popconfirm
-            title="Are you sure want to Accept "
-            onConfirm={() => handleAccept(record)}
+            title="Are you sure want to Approve "
+            onConfirm={() => handleApprove(record)}
             placement="rightTop"
             okText={<div className="ok_btn">Ok</div>}
             cancelText="No"
@@ -142,7 +143,7 @@ function TableDashboard() {
             title="Are you sure want to Reject "
             onConfirm={() => handleReject(record)}
             placement="rightTop"
-            okText="Yes"
+            okText={<div className="ok_btn">Ok</div>}
             cancelText="No"
           >
             <Button

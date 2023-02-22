@@ -31,13 +31,42 @@ const ProjectHelper = async (formData) => {
 }
 
 const UpdateProjectHelper = async (projectUpdate) => {
-    console.log("update adminhelper...", projectUpdate)
+    console.log("update adminhelper project id...", projectUpdate.projectId)
+    // console.log("start date 1..", projectUpdate.date[0])
+    // console.log("end date 2..", projectUpdate.date[1])
+    // console.log("contract id..", projectUpdate.contactId)
+    // startDate:projectUpdate.date[0],
+    // endDate:projectUpdate.date[1],
+    // contractid: projectUpdate.contactId
+
+
+
+    try {
+        return new Promise(async (resolve, reject) => {
+            await Project.findByIdAndUpdate({ _id: projectUpdate.projectId },
+                {
+                    $set: {
+                        status: projectUpdate.status,
+                    }
+                }, { new: true }).then((updatedProject) => {
+                    console.log("updated status project..", updatedProject)
+                    resolve(updatedProject)
+                })
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+const getProjectHelper = async (status) => {
+    console.log("getproject helper")
     try {
         return new Promise(async (resolve, reject) => {
 
-            await Project.findByIdAndUpdate({ _id:projectUpdate.projectId }, { $set: { status: projectUpdate.status } },{new: true}).then((updatedProject) => {
-                console.log("updated status project..", updatedProject)
-                resolve(updatedProject)
+            await Project.find({ status: status }).then((projects) => {
+                console.log("geted projects..", projects)
+                resolve(projects)
             })
         })
     }
@@ -45,19 +74,39 @@ const UpdateProjectHelper = async (projectUpdate) => {
         console.log(err)
     }
 }
-const  getProjectHelper=async()=>{
-    console.log("getproject helper")
-    try{
+
+
+const ProjectDateUpdateHelper = async (projectUpdate) => {
+    console.log("update adminhelper project id...", projectUpdate.projectId)
+    console.log("start date 1..", projectUpdate.date[0])
+    console.log("end date 2..", projectUpdate.date[1])
+    console.log("contract id..", projectUpdate.contactId)
+   
+
+    try {
         return new Promise(async (resolve, reject) => {
 
-            await Project.find({status:'pending'}).then((projects) => {
-                console.log("geted projects..", projects)
-                resolve(projects)
-            })
-        }) 
+            await Project.findByIdAndUpdate({ _id: projectUpdate.projectId },
+                {
+                    $set: {
+                        finalStatus: projectUpdate.finalStatus,
+                        startDate:projectUpdate.date[0],
+                        endDate:projectUpdate.date[1],
+                        contractid: projectUpdate.contactId
+                    }
+
+
+                }, { new: true }).then((updatedProject) => {
+
+                    console.log("updated status project..", updatedProject)
+                    resolve(updatedProject)
+                })
+        })
     }
-    catch(err){
+    catch (err) {
         console.log(err)
     }
 }
-module.exports = { ProjectHelper, UpdateProjectHelper,getProjectHelper }
+
+
+module.exports = { ProjectHelper, UpdateProjectHelper, getProjectHelper, ProjectDateUpdateHelper }
