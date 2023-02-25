@@ -1,6 +1,11 @@
 .card{
     background-color: rgba(41, 23, 97, 0.421);
-    width: 100%;
+    /* max-width: 100%; */
+
+    max-width: 400px;
+
+    
+
     padding: 15px;
     border-radius: 20px;
 }
@@ -35,10 +40,20 @@ gap: 20px;
     font-weight: 700;
     transition:all 0.5s;
     cursor: pointer;
+    color: white;
 
 }
 #project_name:hover{
     color: rgb(39, 26, 143);
+}
+.status_started{
+    background-color: rgba(167, 7, 162, 0.911);
+    width: fit-content;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: .7rem; 
+    color: white;
 }
 .status{
     background-color: rgba(213, 3, 3, 0.911);
@@ -47,6 +62,8 @@ gap: 20px;
     padding-left: 20px;
     padding-right: 20px;
     font-size: .7rem;
+    color: white;
+
 }
 .dicription{
     color: rgb(210, 210, 210);
@@ -67,7 +84,21 @@ gap: 20px;
 .total_raise_amount{
 margin: 0px;
 padding: 0px;
+color: white;
 }
+
+.knomore_btn{
+    background-color: rgba(86, 12, 142, 0.524);
+    border-radius: 20px;
+    cursor: pointer;
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    color: rgb(166, 167, 168);
+    
+}
+
+
 .public_or_private{
 color: rgb(204, 203, 204);
 font-weight: bold;

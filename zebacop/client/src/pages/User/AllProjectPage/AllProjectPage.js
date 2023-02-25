@@ -1,9 +1,15 @@
 import React from 'react'
 import './AllProject.css'
+import AllprojectNav from '../../../components/TabProjects/TabProjects';
+import { Outlet } from 'react-router-dom';
 
 function AllProjectPage() {
   return (
-    <div className='allProject'>AllProjectPage</div>
+    <div className='allProject'>
+    
+    <AllprojectNav/>
+
+    </div>
   )
 }
 

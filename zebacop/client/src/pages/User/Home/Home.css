@@ -1,11 +1,13 @@
 
 
 .home{
-    background-color: rgba(33, 1, 40, 0.164);
+    background-color: rgba(33, 1, 40, 0.168);
     /* max-width: 1200px; */
     color: white;
-
     padding: 20px;
+
+    min-height: 100vh;
+
 }
 .text_heading_wapper{
     /* background-color: rgb(66, 39, 4); */

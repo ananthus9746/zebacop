@@ -1,86 +1,48 @@
+.FooterWrapper {
+    background-color: rgba(60, 12, 144, 0.364);
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer_section_main {
+    background-color: rgb(118, 125, 125);
+    display: flex;
+}
+.company_socials_links {
+    display: flex;
+    gap: 20px;
+}
+.footer-company_logo {
+   width: 200px;
+}
+/* .section_one{
+    display: flex;
+} */
 
 
 
+.footer_section_wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgb(47, 46, 44);
+}
 
-
-// function Form() {
-
-//     const {
-//         register,
-//         handleSubmit,
-//         watch,
-//         reset,
-//         formState: { errors },
-//     } = useForm();
-
-//     const onSubmit = async (data) => {
-//         console.log("inside Onsubmit", data);
-//         console.log("inside Onsubmit", data);
-
-//         const formData = new FormData();
-//         formData.append("image", data.image[0]);
-//         formData.append("projectName", data.projectName)
-//         formData.append("ProjectType", data.ProjectType)
-//         formData.append("ProjectTypeother", data.ProjectTypeother)
-//         formData.append("introduction", data.introduction)
-//         formData.append("tokeynSymbol", data.tokeynSymbol)
-//         formData.append("blockchain", data.blockchain)
-//         formData.append("otherBlockchain", data.otherBlockchain)
-
-
-//         console.log("image appednde data..", formData)
-
-//         try {
-
-//             Swal.fire({
-//                 title: 'Are you sure?',
-//                 text: "Do you want to continue!",
-//                 icon: 'warning',
-//                 showCancelButton: true,
-//                 confirmButtonColor: '#3085d6',
-//                 cancelButtonColor: '#d33',
-//                 confirmButtonText: 'Yes, continue!'
-//             }).then(async (result) => {
-//                 if (result.isConfirmed) {
-
-//                     submitForm(data).then((res) => {
-//                         console.log("Ress..", res)
-//                         // if (res.status === 200) {
-//     Swal.fire(
-//         'Submited!',
-//         'success'
-//     )
-//     reset({
-//         projectName: "",
-//         ProjectType: "",
-//         ProjectTypeother:"",
-//         introduction: "",
-//         tokeynSymbol: "",
-//         blockchain: "",
-//         otherBlockchain: "",
-//         currentStatus:""
-//     });
-// }
-//                         // else {
-//                         //     console.log("form else..")
-//                         //     alert("Something went wrong try again..")
-//                         // }
-//                     })
-
-//                 }
-//             })
-
-//         } catch (err) {
-//             console.log(err)
-//         }
-
-
-//     };
-
-//     return (
-      <div className='form_wrapper'>
-
-//             <form className='form_container' onSubmit={handleSubmit(onSubmit)}>
+.footer_section {
+    background-color: rgba(55, 164, 135, 0.255);
+    width: 400px;
+    height: 300px;
+}
 
 
 
@@ -90,13 +52,34 @@
 
 
 
-//                 <label htmlFor="">Project logo or image</label>
-//                  <input type="file" {...register("image")}/>
 
 
-//             </form>
-//         </div>
-//     )
-// }
 
-// export default Form
+
+
+
+
+@media only screen and (max-width: 800px) {
+    .footer_section_wrapper {
+        /* background-color: rgb(66, 182, 34); */
+        min-width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        gap: 10px;
+
+
+    }
+
+    .footer_section {
+        width: 100%;
+    }
+
+    .footer_disc {
+        text-align: center;
+    }
+
+}

@@ -1,55 +1,43 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { submitForm } from "../../APIs/UserApi";
-import Swal from "sweetalert2";
-import axios from "axios";
+import React from "react";
+import "./Footer.css";
+import companyLog from "../../../src/images/logo.png";
+import { TwitterOutlined } from "@ant-design/icons";
+import { FaEnvelope, FaTelegramPlane } from "react-icons/fa";
 
-import "./Form.css";
-
-function Form() {
-  const { register, handleSubmit } = useForm();
-
-  const [contactId, setContractId] = useState("");
-
-  const onSubmit = async (data) => {
-   
-    const formData = new FormData();
-    formData.append("image", data.image[0]);
-    formData.append("text", data.g);
-    formData.append("name", data.rtext);
-    formData.append("age", data.age);
-    formData.append("place", data.place);
-    formData.append("others", data.other);
-
-      const response = await axios.post( "http://localhost:5000/admin/project", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log(response.data);
-    
-  };
-
+function Footer() {
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="FooterWrapper">
+        
+      <div className="footer_section_wrapper">
+        <div className="footer_section">
+          <div className="section_one">
+            <img src={companyLog} alt="" className="footer-company_logo" />
+            <p>Making DeFi a Safer Place.</p>
+            <p className="footer_disc">
+              Lorem ipsum dolor sit, amet uatur, ratione, maxime ipsam
+              asperiores non aliquam?
+            </p>
+            <div className="company_socials_links">
+              <TwitterOutlined className="social_link" />
+              <FaTelegramPlane className="social_link" />
+              <FaEnvelope className="social_link" />
+            </div>
+          </div>
+        </div>
 
+        <div className="footer_section">
+            <ul>
+                <li>Apply fot IDO</li>
+                <li>Privacy policy</li>
+                <li>Terms of use</li>
+                <li>FAQ</li>
+            </ul>
+        </div>
+        <div className="footer_section">3</div>
 
-      <input type="text" name="text" {...register("g")} />
-      <input type="text"  {...register("name")} />
-      <input type="text"  {...register("age")} />
-      <input type="text"  {...register("place")} />
-      <input type="text"  {...register("other")} />
-
-      <input type="file" {...register("image")}/>
-      <button type="submit">Submit</button>
-
-
-    </form>
+      </div>
+    </div>
   );
 }
 
-export default Form;
-
-
-
-
+export default Footer;

@@ -37,7 +37,7 @@ const ProjectSchema=new mongoose.Schema({
     otherBlockchain:{
         type:String
     },
-    img:{
+    projectImage:{
         type:String
     },
     status:{

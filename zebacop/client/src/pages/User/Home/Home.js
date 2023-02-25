@@ -7,9 +7,13 @@ import MainBanner from '../../../components/Banner/MainBanner'
 import SubBanner from '../../../components/SubBanner/SubBanner';
 import Portfolio from '../../../components/portfolio/Portfolio';
 import TotalProjectAndCapital from '../../../components/TotalProjectAndCapital/TotalProjectAndCapital';
+import HeroVideo from '../../../components/heroVideo/HeroVideo'
+import Footer from './../../../components/Footer/Footer';
 function Home() {
   return (
     <div className='home'>
+
+      {/* <HeroVideo/> */}
 
       <div className="text_heading_wapper">
         <div class="tex_container">
@@ -43,6 +47,8 @@ function Home() {
 
 
       <TotalProjectAndCapital/>
+
+      <Footer/>
 
       
 

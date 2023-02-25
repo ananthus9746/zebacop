@@ -4,19 +4,37 @@ import { Progress } from "@material-tailwind/react";
 // import TwitterIcon from '@mui/icons-material/Twitter';
 import projectImage from '../../images/NFT-Site_0.jpg'
 
+import { NavLink, Link } from "react-router-dom";
 
 
-function Card() {
+
+
+function Card(props) {
+
+
+    // {props.obj&&console.log("obj in card from allproject tab..",props.obj.projectName)}
+
+    console.log("t tab..", process.env.REACT_APP_API_URL)
+
+
+
     return (
         <div className='card'>
 
             <div className="card_container">
                 <div className="img_discrption_container">
-                    <img src={projectImage} className='pro_img' alt="projectImage" />
+
+                    <img src={process.env.REACT_APP_API_URL+"/images/"+props.obj?.projectImage} className='pro_img' alt="projectImage" />
+
 
                     <div className="name_discription">
-                        <p id='project_name'>Nft painting</p>
-                        <div className='status'>Ended</div>
+                        <p id='project_name'>{props.obj?.projectName}</p>
+
+                        {
+                            props.obj?.status === "ended" ? <div className='status'  >Ended</div> : <div className='status_started'  >Started</div>
+                        }
+
+
                         <div className='dicription'><p>NFT Paintings is the first company in the world which offers unique opportunities related to investing in valuable paintings.</p></div>
                     </div>
                 </div>
@@ -36,7 +54,10 @@ function Card() {
                 </div>
 
                 <div className='socia_links_and_status'>
-                    <div>ICO Ended</div>
+                    <Link to='/viewProject' state={{ projectDetails:props.obj }}  >
+
+                        <div className='knomore_btn'>Know more</div>
+                    </Link>
                     {/* <FontAwesomeIcon icon="fa-light fa-coffee" /> */}
                     {/* <div>Know more</div> */}
                 </div>

@@ -7,10 +7,11 @@ const cors =require('cors')
 const connectDB=require('./config/db')
 const AdminRouter = require('./routes/admin')
 const UserRouter = require('./routes/user')
+const path = require('path');
+
 dotenv.config()
 mongoose.set('strictQuery', false);
-//multer
-// app.use(express.static("./public"));
+
 
 
 
@@ -33,16 +34,9 @@ app.use(cors())
 app.use(morgan("common"))
 app.use(express.json());
 
-// app.use(
-//     fileupload({
-//         createParentPath: true,
-//     }),
-// );
+app.use('/images',express.static(path.join(__dirname,'public/images')))
 
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
 
-//MAIN ROUTES
 app.use('/admin',AdminRouter)
 
 app.use('/',UserRouter)

@@ -11,3 +11,14 @@ export const UpdateStatus=(status)=>userInstance.put(`admin/project`,status)
 
 export const ProjectDateUpdate=(data)=>userInstance.put(`admin/projectdateupdate`,data)
 
+export const DeleteProject=(projectId)=>userInstance.delete(`admin/deleteproject/${projectId}`)
+
+export const geAlltProjects=(project)=>userInstance.get(`admin/getAllprojects`)
+
+export const OngoingtProjects=(project)=>userInstance.get(`admin/Ongoingprojects`)
+
+export const EndedProjects=(project)=>userInstance.get(`admin/Ended`)
+
+
+
+

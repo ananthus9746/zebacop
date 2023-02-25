@@ -11,6 +11,7 @@ import './project.css'
 // import required modules
 
 import Card from '../Card/Card'
+import { geAlltProjects } from "../../APIs/UserApi";
 
 export default function App() {
   const [isMobile, setIsMobile] = useState(0)
@@ -47,6 +48,28 @@ export default function App() {
 
 
 
+const [loading, setLoading] = useState(false);
+const [colData,setColData]=useState([])
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    setLoading(true);
+    await geAlltProjects().then((response) => {
+      console.log("Home project slider..", response.data.projects);
+      console.log("home slide col..",colData[2])
+      setColData(response.data.projects);
+      setLoading(false);
+    });
+  };
+
+
+
+
+
+
   return (
     <>
       <Swiper
@@ -68,24 +91,31 @@ export default function App() {
       modules={[Autoplay, Pagination,]}
       className="mySwiper"
       >
+
+  
+
         <SwiperSlide>
-
-          <Card />
-
+          <Card  obj={colData[0]}/>
         </SwiperSlide>
 
         <SwiperSlide>
+          <Card obj={colData[1]}/>
+        </SwiperSlide>
 
-          <Card />
-        </SwiperSlide> <SwiperSlide>
-          <Card />
+        
+         <SwiperSlide>
+          <Card obj={colData[2]}/>
         </SwiperSlide>
+
         <SwiperSlide>
-          <Card />
+          <Card obj={colData[3]}/>
         </SwiperSlide>
+
+
         <SwiperSlide>
-          <Card />
+          <Card obj={colData[4]}/>
         </SwiperSlide>
+        
       </Swiper>
     </>
   );

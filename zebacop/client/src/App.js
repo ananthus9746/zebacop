@@ -3,7 +3,7 @@ import UserStructure from './LayoutNav/UserStructure'
 import Home from './pages/User/Home/Home'
 import AllProjectPage from './pages/User/AllProjectPage/AllProjectPage'
 import ConnectWalletPage from './pages/User/ConnectWalletPage/ConnectWalletPage'
-import ViewProject from './pages/User/ViewProject/ViewProject'
+import ViewProjectPage from './pages/User/ViewProjectPage/ViewProjectPage'
 import ApplyPage from './pages/User/ApplyPage/ApplyPage'
 // -------------------ADMIN-----------------------------//
 import AdminStructureNav from './LayoutNav/AdminStructureNav'
@@ -32,8 +32,11 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/projects" element={<AllProjectPage />} />
           <Route path="/ConnectWallets" element={<ConnectWalletPage />} />
-          <Route path="/viewProject/:id" element={<ViewProject />} />
+          <Route path="/viewProject" element={<ViewProjectPage />} />
           <Route path="/Apply" element={<ApplyPage />} />
+          
+
+          
 
         </Route>
 

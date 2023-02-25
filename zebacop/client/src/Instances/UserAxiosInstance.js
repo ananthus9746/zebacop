@@ -4,7 +4,7 @@ const baseURL="http://localhost:5000/"
 const defaultOption={
     baseURL:baseURL,
     headers:{
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
     }
 }
 let userInstance=axios.create(defaultOption);

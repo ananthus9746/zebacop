@@ -1,4 +1,4 @@
-const { ProjectHelper,UpdateProjectHelper,getProjectHelper,ProjectDateUpdateHelper } = require("../helpers/adminHelper")
+const { ProjectHelper,UpdateProjectHelper,getProjectHelper,ProjectDateUpdateHelper,DeleteHelper,getAllprojectsHelper,getOngoingprojectsHelper,getEndedprojectsHelper} = require("../helpers/adminHelper")
 
 // const multer = require("multer");
 
@@ -18,18 +18,23 @@ const Project = async (req, res) => {
 
     const file = req.file;
     console.log( req.body); 
-     console.log(file);
+     console.log(file.filename);
+     let projectData={
+        Img:file.filename,
+        data: req.body
+     }
 
-    // try {
-    //     ProjectHelper(req.body).then((response) => {
-    //         res.status(200).json({ message: "data inserted", response })
-    //         console.log("data inserted")
-    //     }).catch((err) => {
-    //         res.status(500).json({ mess: "server err...", err });
-    //     })
-    // } catch (err) {
-    //     console.log(err)
-    // }
+    try {
+
+        ProjectHelper(projectData).then((response) => {
+            res.status(200).json({ message: "data inserted", response })
+            console.log("data inserted")
+        }).catch((err) => {
+            res.status(500).json({ mess: "server err...", err });
+        })
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 
@@ -63,10 +68,9 @@ const getprojects =async(req,res)=>{
     })
 }
 
+// ----------------DATE AND CONTRACT ID UPDATE------------------
 const ProjectDateUpdate = async (req, res) => {
     console.log("upadte project..", req.body)
-    
-    
     try {
         ProjectDateUpdateHelper(req.body).then((updatedProject) => {
             console.log("upadted ctrl date for response",updatedProject)
@@ -78,8 +82,79 @@ const ProjectDateUpdate = async (req, res) => {
         console.log(err)
     }
 }
+// ----------------------------------------------------------------
 
-module.exports = { Project,UpdateProject,getprojects,ProjectDateUpdate }
+
+// ---------------------------DELETE---------------------------------
+const DeleteProject=async (req,res)=>{
+    console.log("delete..id",req.params.id)
+    try{
+        DeleteHelper(req.params.id).then((deleted) => {
+            console.log("upadted ctrl date for response",deleted)
+            
+            res.status(200).json({deleted })
+        }).catch((err) => {
+            // res.status(500).json({ mess: "server err...", err });
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+// -----------------------GET ALL PROEJECTS USER-----------------------//
+
+const getAllprojects=async (req,res)=>{
+    console.log("allproject ctrl user..",req.body)
+
+    try{
+
+        getAllprojectsHelper(req.params.status).then((projects)=>{
+            res.status(200).json({ message: "projects..", projects })
+    
+        }) 
+
+    }catch(err){
+        console.log("err",err)
+    }
+}
+
+const getOngoingprojects=async (req,res)=>{
+    console.log("Ongoing ctrl user..",req.body)
+
+    try{
+
+        
+        getOngoingprojectsHelper(req.params.status).then((projects)=>{
+            res.status(200).json({ message: "ongoing project..", projects })
+    
+        }) 
+
+
+    }catch(err){
+        console.log("err",err)
+    }
+}
+
+const getEndedprojects=async (req,res)=>{
+    console.log("Ended ctrl user..",req.body)
+
+    try{
+
+
+
+        getEndedprojectsHelper(req.params.status).then((projects)=>{
+            res.status(200).json({ message: "Ende projects..", projects })
+    
+        }) 
+
+
+    }catch(err){
+        console.log("err",err)
+    }
+}
+
+
+
+module.exports = { Project,UpdateProject,getprojects,ProjectDateUpdate,DeleteProject,getAllprojects,getOngoingprojects,getEndedprojects }
 
 
 
