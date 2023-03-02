@@ -226,6 +226,14 @@ function TableDashboard() {
             Project's current state of development:
           </span>
           <span className="moda_user_inputs">{modalInfo.currentStatus}</span>
+
+          <div className="">
+          <span className="modal_subheads">
+           Project image / logo:
+          </span>
+          <img src={process.env.REACT_APP_API_URL+"/images/"+modalInfo.projectImage} className='pro_img' alt="projectImage" />
+          </div>
+
         </p>
       </Modal>
     </div>

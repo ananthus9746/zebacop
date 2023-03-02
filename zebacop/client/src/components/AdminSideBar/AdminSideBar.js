@@ -85,6 +85,17 @@ function AdminSideBar() {
             name:"rejected",
             icon:<FaTh/>
         },
+        {
+            path:"/admin/editProject",
+            name:"Edit/Update project",
+            icon:<FaTh/>
+        },
+        {
+            path:"/admin/addPartner",
+            name:"Add-partners",
+            icon:<FaTh/>
+        },
+        
     ]
 
 

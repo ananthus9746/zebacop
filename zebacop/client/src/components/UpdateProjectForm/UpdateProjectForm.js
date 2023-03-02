@@ -70,17 +70,11 @@ function UpdateProjectPage() {
 
           {/* <RangePicker
             onChange={(values) => {
-      
               console.log("date.",values[1])
-
                 const startDate=moment(values[0]).format('DD-MM-YYYY')
                 const EndDate=moment(values[1]).format('DD-MM-YYYY')
-
                 console.log("start..",startDate)
-
                 console.log("end..",EndDate)
-
-
             }}
           /> */}
 

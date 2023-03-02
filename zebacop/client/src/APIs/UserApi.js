@@ -19,6 +19,15 @@ export const OngoingtProjects=(project)=>userInstance.get(`admin/Ongoingprojects
 
 export const EndedProjects=(project)=>userInstance.get(`admin/Ended`)
 
+export const getEditproject=(project)=>userInstance.get(`admin/editproject`)
+
+export const getSingleProjects=(id)=>userInstance.get(`admin/getsingleprojects/${id}`)
+
+export const ProjectEditUpdate=(data)=>userInstance.put(`admin/projectEditUpdate`,data)
+
+
+
+
 
 
 

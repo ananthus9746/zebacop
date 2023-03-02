@@ -19,6 +19,9 @@ import RejectedPage from './pages/Admin/RejectedPage/RejectedPage'
 import UpdateProjectPage from './pages/Admin/UpdateProjectPage/UpdateProjectPage'
 import ErrorPage from  './pages/ErrorPage/ErrorPage'
 import './App.css'
+import EditProject from './pages/Admin/EditProjectPage/EditProjectPage';
+import AddPartnersPage from './pages/Admin/AddPartnersPage/AddPartnersPage';
+import EditForm from "./components/EditForm/EditForm";
 
 function App() {
   return (
@@ -53,6 +56,14 @@ function App() {
             <Route path="ended" element={<EndedProjectPage />} />
             <Route path="rejected" element={<RejectedPage />} />
             <Route path="updateProject" element={<UpdateProjectPage />} />
+            <Route path="editProject" element={<EditProject />} />
+            <Route path="addPartner" element={<AddPartnersPage />} />
+            <Route path="editform" element={<EditForm />} />
+
+            
+            
+
+
 
           </Route>
         </Route>

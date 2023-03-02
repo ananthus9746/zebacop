@@ -1,4 +1,5 @@
-const { ProjectHelper,UpdateProjectHelper,getProjectHelper,ProjectDateUpdateHelper,DeleteHelper,getAllprojectsHelper,getOngoingprojectsHelper,getEndedprojectsHelper} = require("../helpers/adminHelper")
+const { ProjectHelper,UpdateProjectHelper,getProjectHelper,ProjectDateUpdateHelper,
+    DeleteHelper,getAllprojectsHelper,getOngoingprojectsHelper,getEndedprojectsHelper,editprojectProjectHelper,getSingleProjectHelper,projectEditUpdateHelper} = require("../helpers/adminHelper")
 
 // const multer = require("multer");
 
@@ -154,7 +155,61 @@ const getEndedprojects=async (req,res)=>{
 
 
 
-module.exports = { Project,UpdateProject,getprojects,ProjectDateUpdate,DeleteProject,getAllprojects,getOngoingprojects,getEndedprojects }
+const editproject =async(req,res)=>{
+    console.log("get projects..",req.body)
+
+    editprojectProjectHelper().then((projects)=>{
+        res.status(200).json({ message: "edit projects..", projects })
+
+    })
+}
+
+
+
+
+
+const getSingleProjects= (req,res)=>{
+    console.log("single id ctrl user..",req.params.id)
+
+    try{
+
+        getSingleProjectHelper(req.params.id).then((projects)=>{
+            res.status(200).json({ message: " single projects..", projects })
+    
+        }) 
+
+    }catch(err){
+        console.log("err",err)
+    }
+}
+
+
+
+const projectEditUpdate = async (req, res) => {
+    console.log("upadte project ctr..", req.body)
+
+    const file = req.file;
+    console.log( req.body); 
+    console.log("file img..",file);
+
+
+
+    try {
+        projectEditUpdateHelper(req.body,file).then((updatedProject) => {
+            console.log("edit upadted ctrl date for response",updatedProject)
+            res.status(200).json({updatedProject })
+        }).catch((err) => {
+            // res.status(500).json({ mess: "server err...", err });
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
+
+module.exports = { Project,UpdateProject,getprojects,ProjectDateUpdate,DeleteProject,
+    getAllprojects,getOngoingprojects,getEndedprojects,editproject ,getSingleProjects,projectEditUpdate}
 
 
 

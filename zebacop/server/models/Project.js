@@ -13,6 +13,9 @@ const ProjectSchema=new mongoose.Schema({
     introduction:{
         type:String
     },
+    discription:{
+        type:String
+    },
     tokeynSymbol:{
         type:String
     },
@@ -46,6 +49,16 @@ const ProjectSchema=new mongoose.Schema({
     finalStatus:{
         type:String,
     },
+    telegram:{
+        type:String,
+    },
+    twitter:{
+        type:String,
+    },
+     email:{
+        type:String,
+    },
+
     created : {
         type:String,
     },
