@@ -14,7 +14,7 @@ function ViewProject() {
   return (
     <div className='viewProjectWrapper'>
         
-        <ProjectDetailsContainer/>
+        <ProjectDetailsContainer project={projectDetails}/>
 
         <div className="projectDetails"></div>
     </div>

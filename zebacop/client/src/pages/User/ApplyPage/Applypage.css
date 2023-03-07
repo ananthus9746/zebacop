@@ -1,5 +1,5 @@
 .apply{
-    background-color: rgba(33, 1, 40, 0.164);
+    background: linear-gradient(300deg, rgba(8, 8, 102, 0.219) 17%, rgba(3, 17, 97, 0.281) 82%);
     /* height: 100vh; */
     /* max-width: 1200px; */
     color: white;

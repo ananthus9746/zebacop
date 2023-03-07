@@ -50,3 +50,11 @@
 
     width: 170px;
 }
+
+
+@media only screen and (max-width: 670px) {
+    .subBanner_heading{
+        font-size: 2rem;
+     }
+ }
+ 

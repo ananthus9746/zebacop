@@ -1,27 +1,40 @@
+.footer_main_wrapper{
+    width: 100%;
+    padding: 20px;
+    background-color:  rgba(5, 5, 84, 0.284);
+}
 .FooterWrapper{
-    background-color: rgba(159, 158, 159, 0.261);
+    background-color: rgba(41, 23, 97, 0.223);
     width: 100%;
     min-height: 300px;
     margin-top: 20px;
     border-radius: 20px;
     padding: 20px;
+
 }
 .footer_detail{
     color: rgb(189, 189, 189);
     font-size: 1.2rem;
+
+    /* background-color: rgb(81, 88, 88); */
+
 }
 .footer_Section_wrapper{
 /* background-color: black; */
 display: flex;
 justify-content: space-between;
+
 }
 .footer_company_logo{
     width: 140px;
+    max-height: 140px;
+
 }
 
 .footer_logo_detail_wrapper{
     width: 50%;
-}
+display: flex;
+    /* background-color: rgb(77, 77, 3); */}
 .footer_sociallinks_wrapper{
     width: 50%;
     display: flex;
@@ -35,13 +48,58 @@ color: rgb(173, 17, 173);
     color: rgb(253, 31, 105);
 }
 
-@media only screen and (max-width: 800px) {
+
+
+.footer_helper_and_general_container{
+    display: flex;
+    width: 100%;
+    /* background-color: rgb(99, 58, 3); */
+    gap: 10px;
+}
+
+.footer_help{
+    /* background-color: rgb(36, 8, 84); */
+    width: 50%;
+    /* height: 200px; */
+
+}
+.footer_help p {
+    font-size: 1.7rem;
+    color: rgb(145, 145, 145);
+    cursor: pointer; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer_help ul li{
+    font-size: 1.3rem;
+    color: rgb(201, 198, 198);
+    cursor: pointer;
+    line-height: 50px;
+    transition: .3s all ease;
+}
+.footer_help ul li:hover{
+color: rgba(0, 0, 255, 0.575);
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .FooterWrapper{
+        display: flex;
+        flex-direction: column;
+        /* background-color: rgb(53, 3, 3); */
+    }
+    .footer_logo_detail_wrapper{
+    display: none;
+        /* background-color: rgb(77, 77, 3); */
+    }
     .footer_Section_wrapper{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* background-color: rgb(114, 131, 125); */
+        /* background-color: rgb(40, 177, 129); */
         text-align: center;
     }
     .footer_logo_detail_wrapper{
@@ -55,4 +113,21 @@ color: rgb(173, 17, 173);
         width: 100%;
         margin-top: 40px;
     }
+    .footer_helper_and_general_container{
+        
+        width: 100%;
+        /* background-color: rgb(32, 99, 3); */
+
+        flex-direction: column;
+        text-align: center;
+
+        gap: 46px;
+    }
+
+ 
+        .footer_help{
+            /* background-color: rgb(8, 38, 84); */
+            width: 100%;
+        
+        }
 }

@@ -7,7 +7,7 @@ function MainBanner() {
         
         <div className="main_banner_div">
             <p className='banner_heading'>Aplly for IDO</p>
-            <p className='banner_para'>Launch your project on Zebacacop</p>
+            <p className='banner_para'>Launch your project on Launchbox</p>
             <button className='banner_apply_now'>Apply Now</button>
         </div>
 

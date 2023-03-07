@@ -4,7 +4,7 @@ import './TotalCapitalProject.css'
 function TotalProjectAndCapital() {
   return (
     <div className='TotalCapitalProjectWrapper'>
-      <p className='txt_totalproject_and_capital'>Total projects & Capital Raised by Zebaco.finance</p>
+      {/* <p className='txt_totalproject_and_capital'>Total projects & Capital Raised by Zebaco.finance</p> */}
 
       <div className="totals_wrapper">
         <div className="totals_container">

@@ -22,6 +22,7 @@ import './App.css'
 import EditProject from './pages/Admin/EditProjectPage/EditProjectPage';
 import AddPartnersPage from './pages/Admin/AddPartnersPage/AddPartnersPage';
 import EditForm from "./components/EditForm/EditForm";
+import AboutPage from './pages/User/AboutPage/AboutPage';
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
           <Route path="/ConnectWallets" element={<ConnectWalletPage />} />
           <Route path="/viewProject" element={<ViewProjectPage />} />
           <Route path="/Apply" element={<ApplyPage />} />
+          <Route path="/About" element={<AboutPage />} />
+
           
 
           

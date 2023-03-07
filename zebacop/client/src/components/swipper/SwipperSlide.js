@@ -24,7 +24,7 @@ export default () => {
       slidesPerView={4}
         centeredSlides={true}
         autoplay={{
-          delay: 2000,
+          delay: 2300,
           disableOnInteraction: false,
         }}
       

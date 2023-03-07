@@ -1,6 +1,7 @@
-.ViewProjectPageWrapper{
-    color: white;
-
+.AboutPageWrapper{
     background: linear-gradient(300deg, rgba(8, 8, 102, 0.219) 17%, rgba(3, 17, 97, 0.281) 82%);
 
+    padding: 20px;
+color: white;
+    min-height: 100vh;
 }

@@ -52,3 +52,10 @@
 
     width: 170px;
 }
+
+@media only screen and (max-width: 670px) {
+    .banner_heading{
+        font-size: 2.7rem;
+     }
+ }
+ 

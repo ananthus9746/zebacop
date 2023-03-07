@@ -1,16 +1,16 @@
-import React from 'react'
-import videoBg from '../../Assets/video.mp4'
-import './HeroVideo.css'
+// import React from 'react'
+// import videoBg from '../../Assets/video.mp4'
+// import './HeroVideo.css'
 
-function HeroVideo() {
-  return (
-    <div className='bgHeroWrapper'>
+// function HeroVideo() {
+//   return (
+//     <div className='bgHeroWrapper'>
         
-        <video src={videoBg} autoPlay loop muted/>
+//         <video src={videoBg} autoPlay loop muted/>
 
         
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default HeroVideo
+// export default HeroVideo

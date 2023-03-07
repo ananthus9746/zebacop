@@ -12,7 +12,7 @@ function UserStructure() {
         <div className="user_parent_wrapper">
           <Navbar />
           <Outlet></Outlet>
-          {/* <Footer/> */}
+          <Footer/>
         </div>
       </div>
     </>

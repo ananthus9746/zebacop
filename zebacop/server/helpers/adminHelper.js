@@ -25,12 +25,17 @@ const ProjectHelper = async (projectData) => {
                 introduction: formData.introduction,
                 discription: formData.discription,
                 tokeynSymbol: formData.tokeynSymbol,
-                fund: formData.fund,
-                currentStatus: formData.currentStatus,
+                // fund: formData.fund,
+                // currentStatus: formData.currentStatus,
                 blockchain: formData.blockchain,
                 otherBlockchain: formData.otherBlockchain,
                 projectImage: Img,
                 status: "pending",
+                telegram:formData.telegram,
+                twitter:formData.twitter,
+                email:formData.email,
+
+                
             })
 
             await project.save().then((project) => {
@@ -311,7 +316,7 @@ const projectEditUpdateHelper = async (data, file) => {
                         // Return the updated record to the client
                         // return res.send(updatedRecord);
 
-                        // resolve(updatedProject)
+                        resolve(updatedProject)
 
                         console.log("updated pro..",updatedProject)
 

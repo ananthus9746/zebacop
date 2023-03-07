@@ -18,14 +18,19 @@ function Home() {
       <div className="text_heading_wapper">
         <div class="tex_container">
           <div class="txt_heading_container">
-            <p className='txt_main'>Innovative Web 3.0 <br/> IDO <span className='text_launch'>Launch</span><span className='text_box'>box</span> </p>
-            <p className='txt_sub'>by laucnchbox.finance</p>
+            <p className='txt_main'>laucnchbox is the #1 <br/>Stake Launchbox tokens <span className='text_launch'>Launch</span><span className='text_box'>box</span> </p>
           </div>
+
+          <TotalProjectAndCapital/>
+
           <div className="apply_btn_container">
-            <button className='btn_explore'>Explore</button>
+            <button className='btn_explore'>Projects</button>
            <Link to={'/apply'}> <button className='btn_apply'>Apply Now</button></Link>
           </div>
+          <p className='txt_sub'>by laucnchbox.finance</p>
+
         </div>
+        
       </div>
 
 
@@ -46,9 +51,8 @@ function Home() {
       <Portfolio name={"Partners & Backers"}/>
 
 
-      <TotalProjectAndCapital/>
 
-      <Footer/>
+      {/* <Footer/> */}
 
       
 

@@ -1,9 +1,9 @@
 .ProjectDetailsContainerWrapper{
     background-color: rgba(106, 25, 149, 0.142);
     min-height: 100vh;
-    padding: 40px;
+    padding: 20px;
     border-radius: 30px;
-    max-width: 900px;
+    max-width: 1200px;
     margin: auto;
 }
 .details_image_name{
@@ -13,7 +13,7 @@
     align-items: center;
 }
 .detail_img{
-    width: 120px;
+    width: 220px;
     border-radius: 10px;
 }
 .detail_status{
@@ -21,13 +21,24 @@ margin-top: 20px;
 }
 .detail_name{
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     color: rgb(225, 225, 225);
 }
 .detal_text_status{
     font-weight: 700px;
 }
-.detail_status_txt{
+
+.detail_status_started{
+    background-color: rgb(255, 0, 238);
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+    width: 75px;
+    text-align: center;
+    height: 30px;
+    margin-top: 10px;
+}
+.detail_status_ended{
     background-color: rgb(255, 0, 0);
     display: inline-block;
     padding: 5px;
@@ -39,17 +50,23 @@ margin-top: 20px;
 }
 .detail_discription{
     margin-top: 40px;
+    font-size: 1.8rem;
+    color: rgb(188, 188, 188);
+    line-height: 45px;
 }
 .details_date{
     margin-top: 20px;
-    color: gray;
+    color: rgb(116, 116, 116);
+
+    font-size: 1.5rem;
+
 }
 
 .details_social_links{
  display: flex;
  gap: 50px;
  margin-top: 40px;
- font-size: 23px;
+ font-size: 2rem;
  color: #fb1aff;
 }
 .social_link:hover{
@@ -78,5 +95,48 @@ margin-top: 20px;
 .detail_connect_wallet_btn:hover{
     box-shadow: 0 0 40px rgb(255, 0, 230);
     text-shadow: 0 0px 20px #fb1aff;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .details_image_name{
+        /* background-color: rgb(224, 86, 86); */
+        flex-direction: column;
+
+   }
+   .detail_img_container{
+    /* background-color: #fb1aff; */
+    height: 200px;
+  width: 100%;
+
+
+   }
+    .detail_img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-position: center;
+    }
+
+
+
+
+
+
+
+
+    .detail_name{
+        font-size: 2.3rem;
+        text-align: left;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .detail_discription{
+        margin-top: 20px;
+        font-size: 1.2rem;
+       
+        line-height: 30px;
+    }
 
 }

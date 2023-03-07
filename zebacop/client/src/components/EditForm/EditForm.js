@@ -100,7 +100,7 @@ useEffect(() => {
       },
     }).then((res)=>{
       console.log("ress.edit..",res)
-      // navigate('/admin/editProject', { replace: true });
+      navigate('/admin/editProject', { replace: true });
 
     })
 

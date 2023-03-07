@@ -6,6 +6,9 @@ import projectImage from '../../images/NFT-Site_0.jpg'
 
 import { NavLink, Link } from "react-router-dom";
 
+import ReadMoreReact from 'read-more-react';
+
+
 
 
 
@@ -16,6 +19,7 @@ function Card(props) {
 
     console.log("t tab..", process.env.REACT_APP_API_URL)
 
+    const MAX_LENGTH = 20;
 
 
     return (
@@ -24,7 +28,7 @@ function Card(props) {
             <div className="card_container">
                 <div className="img_discrption_container">
 
-                    <img src={process.env.REACT_APP_API_URL+"/images/"+props.obj?.projectImage} className='pro_img' alt="projectImage" />
+                    <img src={process.env.REACT_APP_API_URL + "/images/" + props.obj?.projectImage} className='pro_img' alt="projectImage" />
 
 
                     <div className="name_discription">
@@ -35,7 +39,28 @@ function Card(props) {
                         }
 
 
-                        <div className='dicription'><p>NFT Paintings is the first company in the world which offers unique opportunities related to investing in valuable paintings.</p></div>
+                        <div className='dicription'>
+                            {/* <p>NFT Paintings is the first company in the world which offers unique opportunities related to investing in valuable paintings.</p> */}
+
+                            {props.obj?.discription && <ReadMoreReact text={props.obj?.discription}
+                                min={30}
+                                ideal={140}
+                                max={150}
+
+                                readMoreText={<Link to='/viewProject' state={{ projectDetails: props.obj }}  >
+                                   Read more..
+                                </Link>}
+                            />}
+
+
+
+                        </div>
+
+                        <div>
+
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -54,7 +79,7 @@ function Card(props) {
                 </div>
 
                 <div className='socia_links_and_status'>
-                    <Link to='/viewProject' state={{ projectDetails:props.obj }}  >
+                    <Link to='/viewProject' state={{ projectDetails: props.obj }}  >
 
                         <div className='knomore_btn'>Know more</div>
                     </Link>

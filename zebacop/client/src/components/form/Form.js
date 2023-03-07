@@ -32,6 +32,12 @@ function Form() {
     formData.append("blockchain", data.blockchain);
     formData.append("otherBlockchain", data.otherBlockchain);
 
+    formData.append("discription", data.discription);
+    formData.append("telegram", data.telegram);
+    formData.append("twitter", data.twitter);
+    formData.append("email", data.email);
+
+
     try {
       Swal.fire({
         title: "Are you sure?",
@@ -49,30 +55,30 @@ function Form() {
             },
           })
 
-            .then((res) => {
-              console.log("form submitted", res.data);
-              if (res.status === 200) {
-                Swal.fire(
-                  'Submited!',
-                  'success'
-                )
-                reset({
-                  projectName: "",
-                  ProjectType: "",
-                  introduction: "",
-                  discription: "",
-                  tokeynSymbol: "",
-                  // fund: "",
-                  publicOrAnonymous: "",
-                  currentStatus: "",
-                  blockchain: "",
-                });
-              }
-              else {
-                console.log("form else..")
-                alert("Something went wrong try again..")
-              }
-            });
+            // .then((res) => {
+            //   console.log("form submitted", res.data);
+            //   if (res.status === 200) {
+            //     Swal.fire(
+            //       'Submited!',
+            //       'success'
+            //     )
+            //     reset({
+            //       projectName: "",
+            //       ProjectType: "",
+            //       introduction: "",
+            //       discription: "",
+            //       tokeynSymbol: "",
+            //       // fund: "",
+            //       publicOrAnonymous: "",
+            //       currentStatus: "",
+            //       blockchain: "",
+            //     });
+            //   }
+            //   else {
+            //     console.log("form else..")
+            //     alert("Something went wrong try again..")
+            //   }
+            // });
         }
       });
     } catch (err) {
@@ -226,9 +232,18 @@ function Form() {
             <span className="reqired-field">Select a Platform</span>
           )}
           <label htmlFor="">Social media links</label>
-          <input className="input_other" type="text" placeholder="Telegram" />
-          <input className="input_other" type="email" placeholder="Email" />
-          <input className="input_other" type="text" placeholder="Twitter" />
+          <input className="input_other" type="text" placeholder="Telegram" name="telegram" {...register("telegram", { required: true })}/>
+          {errors.telegram && (
+            <span className="reqired-field">telegram required</span>
+          )}
+          <input className="input_other" type="email" placeholder="Email" name="email" {...register("email", { required: true })}/>
+          {errors.email && (
+            <span className="reqired-field">email required</span>
+          )}
+          <input className="input_other" type="text" placeholder="Twitter" name="twitter" {...register("twitter", { required: true })}/>
+          {errors.twitter && (
+            <span className="reqired-field">twitter required</span>
+          )}
           <label htmlFor="">Project logo/Image</label>
           <input type="file" {...register("image")} />
           <button className="form_submit" type="">
