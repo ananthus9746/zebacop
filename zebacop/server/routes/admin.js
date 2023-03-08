@@ -2,7 +2,9 @@ const express = require('express')
 const multer = require("multer");
 const router = express.Router()
 const { Project, UpdateProject, getprojects, ProjectDateUpdate, DeleteProject,
-  getAllprojects, getEndedprojects, getOngoingprojects, editproject, getSingleProjects,projectEditUpdate } = require('../controller/adminController')
+  getAllprojects, getEndedprojects, getOngoingprojects, editproject,
+   getSingleProjects,projectEditUpdate,addPartner,RemovePartner,
+   getPartners } = require('../controller/adminController')
 
 router.get('/', (req, res) => {
   res.json("admin")
@@ -44,6 +46,14 @@ router.get('/editproject', editproject)
 router.get('/getsingleprojects/:id', getSingleProjects)
 
 router.put('/projectEditUpdate', upload.single("image"), projectEditUpdate)
+
+
+router.post('/addPartner', upload.single("PartnerImage"), addPartner)
+
+router.get('/getPartners', getPartners)
+
+
+router.delete('/RemovePartner/:id', RemovePartner)
 
 
 

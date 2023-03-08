@@ -35,24 +35,7 @@ function RejectedTable() {
     });
   };
 
-  // const handleApprove = async (record) => {
-  //   console.log("record...", record._id);
-  //   let projectId = record._id;
-  //   const status = {
-  //     projectId,
-  //     status: "approved",
-  //   };
-    
-  //   await UpdateStatus(status).then((res) => {
-  //     console.log("gridData..", gridData);
-  //     console.log("fucm..", res.data.updatedProject);
-  //     setGridData(
-  //       gridData.filter((item) => item._id !== res.data.updatedProject._id)
-  //     );
-  //     console.log("mmm", gridData);
-  //     // loadData();
-  //   });
-  // };
+
 
   const handleDelete = async (record) => {
     console.log("record...", record._id);

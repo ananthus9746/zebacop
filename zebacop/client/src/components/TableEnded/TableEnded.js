@@ -22,7 +22,7 @@ function TableEnded() {
     });
   };
 
-
+// NAMEING MISTAKE  THIS COMPONET FOR USER SIDE CARD ENDED(ENDED PROJECTS) PAGE//
 
   return (
     <div className='TableEndedWrapper'>

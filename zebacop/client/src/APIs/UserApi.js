@@ -26,6 +26,13 @@ export const getSingleProjects=(id)=>userInstance.get(`admin/getsingleprojects/$
 export const ProjectEditUpdate=(data)=>userInstance.put(`admin/projectEditUpdate`,data)
 
 
+export const getPartners=()=>userInstance.get(`admin/getPartners`)
+
+export const RemovePartner=(partnerId)=>userInstance.delete(`admin/RemovePartner${partnerId}`)
+
+
+
+
 
 
 

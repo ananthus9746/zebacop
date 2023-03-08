@@ -1,18 +1,9 @@
 const { ProjectHelper,UpdateProjectHelper,getProjectHelper,ProjectDateUpdateHelper,
-    DeleteHelper,getAllprojectsHelper,getOngoingprojectsHelper,getEndedprojectsHelper,editprojectProjectHelper,getSingleProjectHelper,projectEditUpdateHelper} = require("../helpers/adminHelper")
+    DeleteHelper,getAllprojectsHelper,getOngoingprojectsHelper,getEndedprojectsHelper,
+    editprojectProjectHelper,getSingleProjectHelper,projectEditUpdateHelper,
+    addPartnerHelper,getPartnersHelper,RemovePartnersHelper} = require("../helpers/adminHelper")
 
-// const multer = require("multer");
 
-
-
-// var storage = multer.diskStorage({
-
-//     destination: "./public/images",
-//     filename: function (req, file, cb) {
-//     cb(null, Date.now() + '-' +file.originalname )
-//     }
-//     })
-// var upload = multer({ storage: storage }).array('file');
 
 
 const Project = async (req, res) => {
@@ -206,10 +197,69 @@ const projectEditUpdate = async (req, res) => {
     }
 }
 
+const addPartner=async (req,res)=>{
+    console.log("add partner ctrl ...",req.body)
+    const partnerImage = req.file.filename;
+    const PartnerName= req.body.PartnerName
+    console.log( "partner name..",PartnerName); 
+    console.log("file partner ctr img..",partnerImage)
+    try {
+        addPartnerHelper(PartnerName,partnerImage).then((updatedProject) => {
+            console.log("add patner hrlp response",updatedProject)
+            res.status(200).json({updatedProject })
+        }).catch((err) => {
+            // res.status(500).json({ mess: "server err...", err });
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
+const getPartners=async (req,res)=>{
+
+
+    try{
+
+        getPartnersHelper().then((getedPartners)=>{
+            res.status(200).json({ message: " getedPartners..", getedPartners })
+    
+        }) 
+
+    }catch(err){
+        console.log("err",err)
+    }
+    
+}
+
+
+
+const RemovePartner=async (req,res)=>{
+    console.log("RemovePartner id...ctrl..",req.params.id)
+    const PartnerId=req.params.id
+
+    
+
+    try{
+
+        RemovePartnersHelper(PartnerId).then((removedPartner)=>{
+            console.log("RemovePartner ctr response then..",req.params.id)
+
+            res.status(200).json({ message: " removedPartner..ctr..", removedPartner })
+    
+        }) 
+
+    }catch(err){
+        console.log("err",err)
+    }
+}
+
+
+
 
 
 module.exports = { Project,UpdateProject,getprojects,ProjectDateUpdate,DeleteProject,
-    getAllprojects,getOngoingprojects,getEndedprojects,editproject ,getSingleProjects,projectEditUpdate}
+    getAllprojects,getOngoingprojects,getEndedprojects,editproject ,getSingleProjects,projectEditUpdate,addPartner,getPartners,RemovePartner}
 
 
 

@@ -1,4 +1,5 @@
 const Project = require('../models/Project')
+const Partner = require('../models/Partner')
 const fs = require('fs');
 
 
@@ -335,8 +336,73 @@ const projectEditUpdateHelper = async (data, file) => {
     }
 }
 
+ 
+
+const addPartnerHelper = async (PartnerName, partnerImage) => {
+
+    try {
+        return new Promise(async (resolve, reject) => {
+            console.log(" PartnerName promis ...", PartnerName)
+            console.log("partnerImage promise",partnerImage)
+
+            const partner = new Partner({
+                PartnerName:PartnerName,
+                PartnerImage: partnerImage,
+              
+
+                
+            })
+
+            await partner.save().then((partner) => {
+                console.log("saved partner..", partner)
+                resolve({ partner: "partner added sucessfully.." })
+            })
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
+
+}
+
+
+const getPartnersHelper = async () => {
+    console.log("getPartners getPartners")
+    try {
+        return new Promise(async (resolve, reject) => {
+
+            await Partner.find({}).then((getedPartners) => {
+                console.log("getedPartners..", getedPartners)
+                resolve(getedPartners)
+            })
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+const RemovePartnersHelper = async (PartnerId) => {
+    console.log("RemovePartnersHelper PartnerId ",PartnerId)
+    try {
+        return new Promise(async (resolve, reject) => {
+            await Partner.findOneAndDelete({_id:PartnerId}, { new: true }).then((removedPartner) => {
+                console.log("removedPartner..", removedPartner)
+                resolve(removedPartner)
+            })
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
+
 
 module.exports = {
-    ProjectHelper, UpdateProjectHelper, getProjectHelper, ProjectDateUpdateHelper, DeleteHelper,
-    getAllprojectsHelper, getOngoingprojectsHelper, getEndedprojectsHelper, editprojectProjectHelper, getSingleProjectHelper, projectEditUpdateHelper
+    ProjectHelper, UpdateProjectHelper, getProjectHelper, ProjectDateUpdateHelper, 
+    DeleteHelper,getAllprojectsHelper, getOngoingprojectsHelper, getEndedprojectsHelper,
+    editprojectProjectHelper, getSingleProjectHelper, projectEditUpdateHelper,addPartnerHelper,
+    getPartnersHelper,RemovePartnersHelper
 }

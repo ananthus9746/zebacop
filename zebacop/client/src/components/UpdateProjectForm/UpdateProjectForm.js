@@ -101,7 +101,7 @@ function UpdateProjectPage() {
             okText={<div className="ok_btn">Yes</div>}
             cancelText="No"
           >
-            <button type="submit" className="submit_btn">Submit</button>
+            <button type="submit" className="submit_partner">Submit</button>
 
           </Popconfirm>
         </form>
