@@ -121,7 +121,7 @@ color: rgba(0, 0, 255, 0.575);
         flex-direction: column;
         text-align: center;
 
-        gap: 46px;
+        gap: 10px;
     }
 
  
@@ -129,5 +129,26 @@ color: rgba(0, 0, 255, 0.575);
             /* background-color: rgb(8, 38, 84); */
             width: 100%;
         
+        }
+
+
+        .footer_help p {
+            font-size: 1.5rem;
+            color: rgb(98, 93, 93);
+            cursor: pointer; 
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer_help ul li{
+            font-size: 1.3rem;
+            color: rgb(201, 198, 198);
+            cursor: pointer;
+            line-height:40px;
+            transition: .3s all ease;
+
+        }
+        .footer_help ul li:hover{
+        color: rgba(0, 0, 255, 0.575);
         }
 }
