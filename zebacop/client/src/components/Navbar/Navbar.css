@@ -1,3 +1,6 @@
+.nav_wrapper{
+    z-index: 100;   
+}
 .user_nav {
     /* background-color: rgb(8, 1, 22); */
     display: flex;
@@ -21,9 +24,7 @@
 }
 .nav_links {
     display: flex;
-    gap: 40px;
-
-
+    gap: 40px
 }
 
 
@@ -51,4 +52,40 @@
     background: rgb(8, 8, 102);
     background: linear-gradient(90deg, rgba(8, 8, 102, 1) 24%, rgba(178, 50, 207, 1) 100%);
     border: 1px solid black;
+}
+
+@media (max-width: 700px) {
+    .nav_links{
+        gap: 10px;
+        font-size: 10px;
+    }
+    .wllet_btn {
+        padding: 5px;
+        font-size: .6rem;
+        transition: 0.3s;
+    }
+    .company_logo{
+        width: 100px;
+        padding: 0px;
+        margin-top: 15px;
+        margin-left: -30px;
+    }
+  
+
+    .user_nav {
+        /* background-color: rgb(8, 1, 22); */
+        display: flex;
+        justify-content: space-between;
+        /* max-width: 1200px; */
+        color: white;
+        font-size: 1rem;
+        
+        align-items: center;
+        padding: 20px;
+        z-index: 100;
+        backdrop-filter: blur(20px) saturate(200%);
+        -webkit-backdrop-filter: blur(60px) saturate(200%);
+        background-color: rgba(17, 25, 40, 0.69);
+        height: 70px;
+    }
 }

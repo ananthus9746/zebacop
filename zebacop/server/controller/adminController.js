@@ -23,7 +23,7 @@ const adminLogin=async(req,res)=>{
                         const id = userName._id
                         const AdminToken = jwt.sign({ id },
                             process.env.JWT_ADMIN_SECRET_KEY, {
-                            expiresIn: "365d",
+                            expiresIn: "30d",
                         })
            
                 console.log("ress jwt..",userName,AdminToken)
