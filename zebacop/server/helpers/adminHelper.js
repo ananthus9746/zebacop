@@ -32,11 +32,11 @@ const ProjectHelper = async (projectData) => {
                 otherBlockchain: formData.otherBlockchain,
                 projectImage: Img,
                 status: "pending",
-                telegram:formData.telegram,
-                twitter:formData.twitter,
-                email:formData.email,
+                telegram: formData.telegram,
+                twitter: formData.twitter,
+                email: formData.email,
 
-                
+
             })
 
             await project.save().then((project) => {
@@ -293,7 +293,7 @@ const projectEditUpdateHelper = async (data, file) => {
         }
 
     }
-    console.log("old global.",oldImage)
+    console.log("old global.", oldImage)
 
 
 
@@ -303,27 +303,27 @@ const projectEditUpdateHelper = async (data, file) => {
             await Project.findByIdAndUpdate({ _id: data.proId }, proObj, { new: true })
                 .then((updatedProject) => {
 
-                    console.log("old proise..",oldImage)
+                    console.log("old proise..", oldImage)
                     // destination: "./public/images",
 
 
                     fs.unlink('./public/images/' + oldImage, (err) => {
                         if (err) {
-                          // handle error
-                        //   return res.status(500).send(err);
-                        console.log("fs erorr..",err)
+                            // handle error
+                            //   return res.status(500).send(err);
+                            console.log("fs erorr..", err)
                         }
-              
+
                         // Return the updated record to the client
                         // return res.send(updatedRecord);
 
                         resolve(updatedProject)
 
-                        console.log("updated pro..",updatedProject)
+                        console.log("updated pro..", updatedProject)
 
 
-                        
-                      });
+
+                    });
 
 
 
@@ -336,21 +336,21 @@ const projectEditUpdateHelper = async (data, file) => {
     }
 }
 
- 
+
 
 const addPartnerHelper = async (PartnerName, partnerImage) => {
 
     try {
         return new Promise(async (resolve, reject) => {
             console.log(" PartnerName promis ...", PartnerName)
-            console.log("partnerImage promise",partnerImage)
+            console.log("partnerImage promise", partnerImage)
 
             const partner = new Partner({
-                PartnerName:PartnerName,
+                PartnerName: PartnerName,
                 PartnerImage: partnerImage,
-              
 
-                
+
+
             })
 
             await partner.save().then((partner) => {
@@ -383,12 +383,25 @@ const getPartnersHelper = async () => {
 }
 
 const RemovePartnersHelper = async (PartnerId) => {
-    console.log("RemovePartnersHelper PartnerId ",PartnerId)
+    console.log("RemovePartnersHelper PartnerId ", PartnerId)
+    var Image
+    await Partner.findOne({ _id: PartnerId }).then((res) => {
+        console.log("ress for image ..", res)
+        Image = res.PartnerImage
+    })
     try {
         return new Promise(async (resolve, reject) => {
-            await Partner.findOneAndDelete({_id:PartnerId}, { new: true }).then((removedPartner) => {
+            await Partner.findOneAndDelete({ _id: PartnerId }, { new: true }).then((removedPartner) => {
                 console.log("removedPartner..", removedPartner)
-                resolve(removedPartner)
+                fs.unlink('./public/images/' + Image, (err) => {
+                    if (err) {
+                        console.log("fs erorr..", err)
+                        // return res.status(500).send(err);
+                    }
+                    resolve(removedPartner)
+                    console.log("removedPartner ..", removedPartner)
+
+                });
             })
         })
     }
@@ -401,8 +414,8 @@ const RemovePartnersHelper = async (PartnerId) => {
 
 
 module.exports = {
-    ProjectHelper, UpdateProjectHelper, getProjectHelper, ProjectDateUpdateHelper, 
-    DeleteHelper,getAllprojectsHelper, getOngoingprojectsHelper, getEndedprojectsHelper,
-    editprojectProjectHelper, getSingleProjectHelper, projectEditUpdateHelper,addPartnerHelper,
-    getPartnersHelper,RemovePartnersHelper
+    ProjectHelper, UpdateProjectHelper, getProjectHelper, ProjectDateUpdateHelper,
+    DeleteHelper, getAllprojectsHelper, getOngoingprojectsHelper, getEndedprojectsHelper,
+    editprojectProjectHelper, getSingleProjectHelper, projectEditUpdateHelper, addPartnerHelper,
+    getPartnersHelper, RemovePartnersHelper
 }

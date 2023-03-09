@@ -3,6 +3,8 @@ import { EndedProjects } from '../../APIs/UserApi';
 import Card from '../Card/Card'
 import './TableEnded.css'
 
+
+// NAMEING MISTAKE ENDED PROJECT//
 function TableEnded() {
 
 

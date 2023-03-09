@@ -60,10 +60,7 @@ function EditProjectPage() {
     ,
     {
 
-      title: "Logo/image",
-
-      // dataIndex:
-
+    title: "Logo/image",
       render: (text, record) => (
         <div className="update_btn">
           <Image

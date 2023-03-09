@@ -1,0 +1,12 @@
+.LoginWrapper{
+    /* background-color: aqua; */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.login_form_container{
+    max-width: 800px;
+    /* background-color: gray; */
+}

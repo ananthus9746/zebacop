@@ -6,7 +6,7 @@ import AddPartnerForm from "./../../../components/AddPartnerForm/AddPartnerForm"
 import { Button, Modal } from "antd";
 import { useState } from "react";
 import { Input } from "antd";
-import { AddPartner, getPartners } from "../../../APIs/UserApi";
+import {  getPartners } from "../../../APIs/UserApi";
 import axios from "axios";
 
 
@@ -30,10 +30,13 @@ function AddPartnersPage() {
     formData.append("PartnerImage",file);
     formData.append("PartnerName", partnerName);
 
+    const token = localStorage.getItem("AdminToken");
 
     axios.post("http://localhost:5000/admin/addPartner", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
+        'accesstoken': token
+
       },
     }).then((res)=>{
       console.log("add partner submmited then...",res)
@@ -63,19 +66,7 @@ function AddPartnersPage() {
 
 
 
-  // useEffect(() => {
-  //   loadData();
-  // }, []);
 
-  // const loadData = async () => {
-  //   // setLoading(true);
-  //   let rejected="rejected"
-  //   await getPartners().then((response) => {
-  //     console.log("projects..", response.data.getedPartners);
-  //     // setGridData( response.data.getedPartners);
-  //     // setLoading(false);
-  //    });
-  // };
 
 
 

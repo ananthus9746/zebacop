@@ -1,10 +1,13 @@
 const express = require('express')
 const multer = require("multer");
 const router = express.Router()
-const { Project, UpdateProject, getprojects, ProjectDateUpdate, DeleteProject,
+const {adminLogin, Project, UpdateProject, getprojects, ProjectDateUpdate, DeleteProject,
   getAllprojects, getEndedprojects, getOngoingprojects, editproject,
    getSingleProjects,projectEditUpdate,addPartner,RemovePartner,
    getPartners } = require('../controller/adminController')
+
+const {verifyAdmin} =require('../Authentication/AdminAuth')
+
 
 router.get('/', (req, res) => {
   res.json("admin")
@@ -21,39 +24,38 @@ var storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
+router.post('/login',adminLogin)
 
-router.post('/project', upload.single("image"), Project)//this request came from user. submiting project application
+router.put('/project',verifyAdmin,  UpdateProject)//updating project status and other details
 
-router.get('/getprojects/:status', getprojects)
+router.put('/projectdateupdate',verifyAdmin,  ProjectDateUpdate)
 
-router.put('/project', UpdateProject)//updating project status and other details
+router.get('/getprojects/:status',verifyAdmin, getprojects)
 
-router.put('/projectdateupdate', ProjectDateUpdate)
+router.get('/getsingleprojects/:id',verifyAdmin,  getSingleProjects)
 
-router.delete('/deleteproject/:id', DeleteProject)
+router.delete('/deleteproject/:id',verifyAdmin,  DeleteProject)
 
+router.get('/editproject',verifyAdmin,  editproject)
 
-router.get('/getAllprojects', getAllprojects)
+router.put('/projectEditUpdate',verifyAdmin,  upload.single("image"), projectEditUpdate)
 
-router.get('/Ongoingprojects', getOngoingprojects)
+router.post('/addPartner',verifyAdmin,  upload.single("PartnerImage"), addPartner)
 
-router.get('/Ended', getEndedprojects)
+router.get('/getPartners',verifyAdmin,  getPartners)
 
-router.get('/editproject', editproject)
+router.delete('/RemovePartner/:id',verifyAdmin,  RemovePartner)
 
-
-
-router.get('/getsingleprojects/:id', getSingleProjects)
-
-router.put('/projectEditUpdate', upload.single("image"), projectEditUpdate)
+// /admin/editform
 
 
-router.post('/addPartner', upload.single("PartnerImage"), addPartner)
+//USER ROUTER END POINTS
+router.post('/project',  upload.single("image"),Project)//this request came from user. submiting project application
+router.get('/getAllprojects',  getAllprojects)
+router.get('/Ongoingprojects',  getOngoingprojects)
+router.get('/Ended',  getEndedprojects)
 
-router.get('/getPartners', getPartners)
 
-
-router.delete('/RemovePartner/:id', RemovePartner)
 
 
 

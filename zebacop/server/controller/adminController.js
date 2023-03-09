@@ -3,6 +3,58 @@ const { ProjectHelper,UpdateProjectHelper,getProjectHelper,ProjectDateUpdateHelp
     editprojectProjectHelper,getSingleProjectHelper,projectEditUpdateHelper,
     addPartnerHelper,getPartnersHelper,RemovePartnersHelper} = require("../helpers/adminHelper")
 
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const admin =require('../models/Admin')
+
+//user name:"ananthu"
+//password:"123"
+
+
+const adminLogin=async(req,res)=>{
+    console.log("login credentials...",req.body)
+    try{
+      let userName=await admin.findOne({username:req.body.username})
+            if(userName){
+                console.log("finded..", userName)
+                    const checkPassword=await bcrypt.compare(req.body.password,userName.password)
+                    if (checkPassword) {
+
+                        const id = userName._id
+                        const AdminToken = jwt.sign({ id },
+                            process.env.JWT_ADMIN_SECRET_KEY, {
+                            expiresIn: "365d",
+                        })
+           
+                console.log("ress jwt..",userName,AdminToken)
+                        res.status(200).json({ AdminToken: AdminToken, user: userName })
+                    } else {
+                        
+                        console.log("wrong password")
+                        res.status(401). json({ error: "wrong password" })
+                    }
+            }
+            else{
+                console.log("wron user name")
+
+            }
+    }
+    catch(err){
+        console.log("Err",err)
+    }
+ 
+  
+
+
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -258,7 +310,7 @@ const RemovePartner=async (req,res)=>{
 
 
 
-module.exports = { Project,UpdateProject,getprojects,ProjectDateUpdate,DeleteProject,
+module.exports = { adminLogin,Project,UpdateProject,getprojects,ProjectDateUpdate,DeleteProject,
     getAllprojects,getOngoingprojects,getEndedprojects,editproject ,getSingleProjects,projectEditUpdate,addPartner,getPartners,RemovePartner}
 
 

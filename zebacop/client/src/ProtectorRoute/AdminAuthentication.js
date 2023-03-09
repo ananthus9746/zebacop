@@ -4,8 +4,10 @@ import { json, Navigate, Outlet } from 'react-router-dom'
 
 const AdminAuthentication=()=>
 {
-// const admin=localStorage.getItem('Admintoken');
-const admin=true
+const admin=localStorage.getItem('AdminToken');
+
+console.log("token auth..",admin)
+
 return admin?<Outlet/>:<Navigate to='/adminLogin'/>
 
 }

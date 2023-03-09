@@ -1,8 +1,12 @@
 import React from 'react'
+import Login from './../../../components/AdminLogin/Login';
+
 
 function AdminLogin() {
   return (
-    <div>AdminLogin</div>
+    <div>
+      <Login/>
+    </div>
   )
 }
 

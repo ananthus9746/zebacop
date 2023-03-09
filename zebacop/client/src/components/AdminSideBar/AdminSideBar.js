@@ -1,6 +1,8 @@
 import React,{useEffect, useState} from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink ,useNavigate} from 'react-router-dom'
 import './AdminSideBar.css'
+import Swal from "sweetalert2";
+
 import {
     FaBars,
     FaCommentAlt,
@@ -10,6 +12,32 @@ import {
 
 
 function AdminSideBar() {
+
+    const Navigate = useNavigate();
+
+
+    const handleLogout = async (e) => {
+        e.preventDefault();
+        try {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to logout!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#912099",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, continue!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              localStorage.removeItem("AdminToken");
+              localStorage.removeItem("user");
+              Navigate("/adminlogin");
+            }
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
     const[isOpen,setIsOpen]=useState(false)
     const toggle=()=>setIsOpen(!isOpen)
@@ -95,7 +123,7 @@ function AdminSideBar() {
             name:"Add-partners",
             icon:<FaTh/>
         },
-        
+
     ]
 
 
@@ -116,6 +144,7 @@ function AdminSideBar() {
                         </NavLink>
                     )
                    }
+                   <button className='logout_btn' onClick={handleLogout}>logout</button>
                 </div>
 
     )

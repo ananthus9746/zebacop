@@ -89,14 +89,13 @@ useEffect(() => {
     formData.append("email",  values.email);
 
 
-
-
-
-
+    const token = localStorage.getItem("AdminToken");
 
     await axios.put("http://localhost:5000/admin/projectEditUpdate", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
+        'accesstoken': token
+        
       },
     }).then((res)=>{
       console.log("ress.edit..",res)

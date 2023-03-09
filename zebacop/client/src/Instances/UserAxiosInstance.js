@@ -8,7 +8,7 @@ const defaultOption={
     }
 }
 let userInstance=axios.create(defaultOption);
-// userinstance.interceptors.request.use(function (config) {
+// userInstance.interceptors.request.use(function (config) {
 //     const token = localStorage.getItem("userToken");
 //     config.headers.accesstoken = token;
 //     return config;

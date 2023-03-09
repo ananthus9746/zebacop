@@ -46,3 +46,11 @@
 .icon, .link_text{
     font-size: 20px;
 }
+.logout_btn{
+font-size: 15px;   
+margin-left: 2px; 
+
+background-color: red;
+padding: 2px;
+border-radius: 5px;
+}
